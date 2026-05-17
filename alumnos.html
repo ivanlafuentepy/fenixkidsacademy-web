@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumnos | Fenix Kids Academy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1e4db7;
+      --blue-dark: #163a8a;
+      --orange: #f5a623;
+      --green: #2d7a3a;
+      --cream: #fdf6e3;
+      --text: #1a1a1a;
+      --card-bg: #fff;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    /* Header */
+    .header {
+      background: linear-gradient(160deg, #1a3a80, #0f2a6e);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .header img { height: 48px; margin-bottom: 8px; }
+    .header h1 { color: #fff; font-size: 1.4rem; font-weight: 600; }
+    .header p { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      padding: 24px 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+    .card-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #e8e0d4;
+    }
+    .card-photo.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #bbb;
+    }
+    .card-info { padding: 12px; text-align: center; }
+    .card-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+    .card-info .edad { font-size: 0.8rem; color: #666; }
+    .card-info .badge {
+      display: inline-block;
+      margin-top: 6px;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* Ficha individual */
+    .ficha { display: none; max-width: 600px; margin: 0 auto; padding: 24px 16px; }
+    .ficha.active { display: block; }
+    .ficha-back {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .ficha-back:hover { text-decoration: underline; }
+    .ficha-header {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .ficha-foto {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #e8e0d4;
+      flex-shrink: 0;
+    }
+    .ficha-foto.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: #bbb;
+    }
+    .ficha-datos h2 { font-size: 1.5rem; margin-bottom: 4px; }
+    .ficha-datos .apodo { color: #666; font-size: 0.9rem; font-style: italic; }
+    .ficha-datos .meta { margin-top: 8px; font-size: 0.85rem; color: #555; }
+    .ficha-datos .meta span { margin-right: 16px; }
+
+    .ficha-section { margin-top: 24px; }
+    .ficha-section h3 {
+      font-size: 1rem;
+      color: var(--blue-dark);
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat-box {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-box .num { font-size: 1.8rem; font-weight: 700; color: var(--blue); }
+    .stat-box .label { font-size: 0.75rem; color: #666; margin-top: 2px; }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 8px;
+    }
+    .galeria img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .galeria .empty { color: #999; font-size: 0.85rem; padding: 20px; text-align: center; grid-column: 1/-1; }
+
+    .loading { text-align: center; padding: 60px 20px; color: #666; }
+
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px 12px; }
+      .ficha-header { flex-direction: column; text-align: center; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="logo.png" alt="Fenix Kids Academy">
+    <h1>Tribu Fenix</h1>
+    <p>Nuestros alumnos</p>
+  </div>
+
+  <div id="app">
+    <div class="loading">Cargando...</div>
+  </div>
+
+  <script>
+    const API_BASE = 'https://fenix-kids-agent-production.up.railway.app';
+    let alumnosData = [];
+
+    async function cargarAlumnos() {
+      try {
+        const r = await fetch(`${API_BASE}/api/alumnos`);
+        alumnosData = await r.json();
+        alumnosData.sort((a, b) => (a.nombre + a.apellido).localeCompare(b.nombre + b.apellido));
+        renderizar();
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="loading">Error cargando datos</div>';
+      }
+    }
+
+    function renderizar() {
+      const hash = location.hash;
+      if (hash.startsWith('#/alumno/')) {
+        const slug = hash.replace('#/alumno/', '');
+        renderFicha(slug);
+      } else {
+        renderGrid();
+      }
+    }
+
+    function renderGrid() {
+      const app = document.getElementById('app');
+      if (!alumnosData.length) {
+        app.innerHTML = '<div class="loading">No hay alumnos cargados</div>';
+        return;
+      }
+      let html = '<div class="grid">';
+      for (const a of alumnosData) {
+        const foto = a.foto
+          ? `<img class="card-photo" src="${a.foto}" alt="${a.nombre}" loading="lazy">`
+          : `<div class="card-photo placeholder">${a.sexo === 'MUJER' ? '👧' : '👦'}</div>`;
+        html += `
+          <a class="card" href="#/alumno/${a.slug}">
+            ${foto}
+            <div class="card-info">
+              <h3>${a.apodo || a.nombre}</h3>
+              <div class="edad">${a.nombre} ${a.apellido}${a.edad ? ` · ${a.edad} años` : ''}</div>
+              ${a.reservas > 0 ? `<span class="badge">${a.reservas} clases</span>` : ''}
+              ${a.es_prueba ? `<span class="badge" style="background:var(--orange)">Prueba</span>` : ''}
+            </div>
+          </a>`;
+      }
+      html += '</div>';
+      app.innerHTML = html;
+      document.title = 'Tribu Fenix | Fenix Kids Academy';
+    }
+
+    async function renderFicha(slug) {
+      const app = document.getElementById('app');
+      const alumno = alumnosData.find(a => a.slug === slug);
+      if (!alumno) {
+        // Intentar cargar directo de API
+        app.innerHTML = '<div class="loading">Alumno no encontrado</div>';
+        return;
+      }
+
+      const foto = alumno.foto
+        ? `<img class="ficha-foto" src="${alumno.foto}" alt="${alumno.nombre}">`
+        : `<div class="ficha-foto placeholder">${alumno.sexo === 'MUJER' ? '👧' : '👦'}</div>`;
+
+      app.innerHTML = `
+        <div class="ficha active">
+          <a class="ficha-back" href="#/">&larr; Volver</a>
+          <div class="ficha-header">
+            ${foto}
+            <div class="ficha-datos">
+              <h2>${alumno.nombre} ${alumno.apellido}</h2>
+              ${alumno.apodo ? `<div class="apodo">"${alumno.apodo}"</div>` : ''}
+              <div class="meta">
+                ${alumno.edad ? `<span>🎂 ${alumno.edad} años</span>` : ''}
+                <span>${alumno.sexo === 'MUJER' ? '👧' : '👦'} ${alumno.sexo || ''}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ficha-section">
+            <h3>Familia</h3>
+            <div style="font-size:0.9rem;line-height:1.8">
+              ${alumno.padre ? `<div>👨 ${alumno.padre} ${alumno.cell_padre ? `· <a href="https://wa.me/${alumno.cell_padre}">${alumno.cell_padre}</a>` : ''}</div>` : ''}
+              ${alumno.madre ? `<div>👩 ${alumno.madre} ${alumno.cell_madre ? `· <a href="https://wa.me/${alumno.cell_madre}">${alumno.cell_madre}</a>` : ''}</div>` : ''}
+              ${!alumno.padre && !alumno.madre && alumno.cell_padre ? `<div>📱 <a href="https://wa.me/${alumno.cell_padre}">${alumno.cell_padre}</a></div>` : ''}
+            </div>
+          </div>
+
+          <div class="ficha-section">
+            <h3>Estadisticas</h3>
+            <div class="stat-grid">
+              <div class="stat-box">
+                <div class="num">${alumno.reservas}</div>
+                <div class="label">Clases</div>
+              </div>
+              <div class="stat-box">
+                <div class="num">-</div>
+                <div class="label">Asistencia</div>
+              </div>
+              <div class="stat-box">
+                <div class="num">-</div>
+                <div class="label">Fotos</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ficha-section">
+            <h3>Fotos y Videos</h3>
+            <div class="galeria">
+              <div class="empty">Proximamente</div>
+            </div>
+          </div>
+        </div>`;
+
+      document.title = `${alumno.apodo || alumno.nombre} | Fenix Kids Academy`;
+    }
+
+    // Routing
+    window.addEventListener('hashchange', renderizar);
+    cargarAlumnos();
+  </script>
+</body>
+</html>
