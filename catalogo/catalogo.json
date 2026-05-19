@@ -112,9 +112,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de alumnos con pecheras Fenix reunidos con el profe"
     },
     {
       "id": "003",
@@ -605,9 +609,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "trepa",
+        "esfuerzo",
+        "obstaculo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumna trepa por cuerda con ayuda del instructor"
     },
     {
       "id": "010",
@@ -886,9 +896,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "obstaculo",
+        "esfuerzo",
+        "parque",
+        "naturaleza",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino escala muro de escalada junto a la casa del arbol"
     },
     {
       "id": "012",
@@ -1167,9 +1185,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumnos formados contra la pared antes de la actividad"
     },
     {
       "id": "014",
@@ -1306,9 +1328,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "corre",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructora y alumna entran corriendo al gimnasio"
     },
     {
       "id": "016",
@@ -1553,9 +1579,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "piscina",
+        "naturaleza",
+        "panoramica",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista panoramica del balcon con piscina y jardin"
     },
     {
       "id": "020",
@@ -1741,9 +1773,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "naturaleza",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos caminan por el jardin a contraluz"
     },
     {
       "id": "023",
@@ -1955,9 +1992,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "esfuerzo",
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumnos saltan obstaculos de bancos y sillas en el patio"
     },
     {
       "id": "025",
@@ -2257,9 +2302,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "trepa",
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo trepa sobre banco de madera en galeria techada"
     },
     {
       "id": "027",
@@ -2428,9 +2479,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "La Casona",
+        "parque",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructora y alumna miran hacia el rio desde la reja"
     },
     {
       "id": "029",
@@ -2576,9 +2632,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Baldes de colores con materiales para la actividad"
     },
     {
       "id": "031",
@@ -2766,9 +2825,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumnos corren por el balcon del segundo piso"
     },
     {
       "id": "035",
@@ -3043,9 +3106,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "esfuerzo",
+        "concentracion",
+        "detalle",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Pies de alumna caminando en equilibrio sobre tabla"
     },
     {
       "id": "038",
@@ -3368,9 +3438,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "concentracion",
+        "primer plano"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino se arrastra por debajo de mesa en circuito"
     },
     {
       "id": "043",
@@ -3539,9 +3614,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "trepa",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino trepa estructura de madera entre los arboles"
     },
     {
       "id": "045",
@@ -3741,9 +3822,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "corre",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumna con pechera roja corre entre obstaculos"
     },
     {
       "id": "047",
@@ -3868,9 +3954,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "naturaleza",
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumnos corren entre arboles en el jardin amplio"
     },
     {
       "id": "049",
@@ -3984,9 +4076,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "La Casona",
+        "parque",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Casa del arbol a contraluz con destello de sol entre hojas"
     },
     {
       "id": "051",
@@ -4099,9 +4197,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructora mira por ventana de La Casona"
     },
     {
       "id": "053",
@@ -4266,9 +4367,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "corre",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino corre por el balcon del segundo piso"
     },
     {
       "id": "055",
@@ -4568,9 +4673,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "salta",
+        "obstaculo",
+        "esfuerzo",
+        "determinacion",
+        "La Casona",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumna con pechera Fenix salta valla con determinacion"
     },
     {
       "id": "057",
@@ -4815,9 +4928,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "corre",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumna con pechera corre entre obstaculos de madera"
     },
     {
       "id": "060",
@@ -4997,9 +5115,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "concentracion",
+        "esfuerzo",
+        "La Casona",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino camina en equilibrio sobre tabla elevada"
     },
     {
       "id": "062",
@@ -5092,9 +5218,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "carga peso",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos alumnos cargan objetos en el balcon"
     },
     {
       "id": "064",
@@ -5313,9 +5443,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "esfuerzo",
+        "determinacion",
+        "La Casona",
+        "naturaleza",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno golpea saco de boxeo en la galeria"
     },
     {
       "id": "067",
@@ -5635,9 +5772,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "parque",
+        "naturaleza",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista inclinada de obstaculos de madera en el cesped"
     },
     {
       "id": "069",
@@ -5936,9 +6078,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "salta",
+        "obstaculo",
+        "esfuerzo",
+        "juego en grupo",
+        "La Casona",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno salta sobre cajon de madera en circuito"
     },
     {
       "id": "071",
@@ -6071,9 +6221,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "naturaleza",
+        "plano general",
+        "risa",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de alumnos posando en el jardin de La Casona"
     },
     {
       "id": "073",
@@ -6199,9 +6356,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "naturaleza",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Cartel Fenix Kids entre arboles y vegetacion tropical"
     },
     {
       "id": "076",
@@ -6495,9 +6656,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "cuerda",
+        "gimnasio",
+        "esfuerzo",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino colgado de cintas TRX en gimnasio con bolsa de boxeo"
     },
     {
       "id": "082",
@@ -6666,9 +6834,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "La Casona",
+        "juego en grupo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos corriendo en la galeria durante actividad"
     },
     {
       "id": "084",
@@ -7057,9 +7230,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "equilibrio",
+        "La Casona",
+        "parque",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con pechera roja saltando sobre bancos en circuito"
     },
     {
       "id": "087",
@@ -7458,9 +7638,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "La Casona",
+        "parque",
+        "esfuerzo",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con pechera Fenix saltando obstaculos en jardin"
     },
     {
       "id": "089",
@@ -7560,9 +7748,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "parque",
+        "naturaleza",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nina pequena trepando estructura de madera entre arboles"
     },
     {
       "id": "091",
@@ -7641,9 +7837,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "juego en grupo",
+        "risa",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninas con remera Fenix jugando en la casita del arbol"
     },
     {
       "id": "093",
@@ -7884,9 +8086,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "detalle",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino bajando por tobogan amarillo con pelota en mano"
     },
     {
       "id": "097",
@@ -8061,9 +8267,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "parque",
+        "cuerda",
+        "plano general",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista del parque con cartel La Casona y ninos al fondo"
     },
     {
       "id": "101",
@@ -8154,9 +8366,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "parque",
+        "naturaleza",
+        "esfuerzo",
+        "concentracion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino subiendo escalera de la casita a contraluz"
     },
     {
       "id": "103",
@@ -8303,9 +8523,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "parque",
+        "naturaleza",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructora ayudando a nino a trepar red de la casita"
     },
     {
       "id": "105",
@@ -8385,9 +8611,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "concentracion",
+        "plano medio",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con lentes arriba del tobogan listo para bajar"
     },
     {
       "id": "107",
@@ -8478,9 +8709,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino trepando en galeria cubierta de La Casona"
     },
     {
       "id": "109",
@@ -8657,9 +8892,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "salta",
+        "juego en grupo",
+        "La Casona",
+        "parque",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino saltando entre banquitos en circuito exterior"
     },
     {
       "id": "112",
@@ -8786,9 +9029,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "La Casona",
+        "parque",
+        "concentracion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino caminando sobre bancos de madera en circuito"
     },
     {
       "id": "115",
@@ -8902,9 +9153,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "parque",
+        "naturaleza",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista completa de la casita del arbol con ninos trepando"
     },
     {
       "id": "117",
@@ -9083,9 +9340,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino arrastandose bajo barra mientras instructor mira"
     },
     {
       "id": "121",
@@ -9221,9 +9485,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "La Casona",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino arrastandose en el piso durante circuito"
     },
     {
       "id": "123",
@@ -9325,9 +9593,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "piscina",
+        "La Casona",
+        "juego en grupo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos en circuito junto a piscina sobre colchonetas"
     },
     {
       "id": "125",
@@ -9461,9 +9735,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "La Casona",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Padre ayudando a nina a saltar entre cajones en jardin"
     },
     {
       "id": "127",
@@ -9597,9 +9877,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "esfuerzo",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos corriendo sobre tabla inclinada en circuito"
     },
     {
       "id": "129",
@@ -9790,9 +10078,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "concentracion",
+        "naturaleza",
+        "La Casona",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Primer plano de nino con pechera violeta concentrado"
     },
     {
       "id": "131",
@@ -9938,9 +10232,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "La Casona",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructor guiando a nino sobre escalera en piso"
     },
     {
       "id": "133",
@@ -10140,9 +10440,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "La Casona",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino avanzando a gatas sobre escalera en el cesped"
     },
     {
       "id": "136",
@@ -10253,9 +10559,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "juego en grupo",
+        "La Casona",
+        "parque",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos corriendo en cancha de volley en el jardin"
     },
     {
       "id": "138",
@@ -10409,9 +10721,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "carga peso",
+        "logro",
+        "risa",
+        "La Casona",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructora levantando a nina en hombros al final"
     },
     {
       "id": "141",
@@ -10684,9 +11003,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "obstaculo",
+        "concentracion",
+        "primer plano",
+        "naturaleza",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con lentes rojos trepa estructura con mirada concentrada"
     },
     {
       "id": "147",
@@ -10918,9 +11245,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "obstaculo",
+        "esfuerzo",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno sube escalera de madera en estructura de obstaculos"
     },
     {
       "id": "151",
@@ -11065,9 +11398,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "obstaculo",
+        "esfuerzo",
+        "plano medio",
+        "La Casona",
+        "gimnasio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nina corriendo hacia el gimnasio con sacos al fondo"
     },
     {
       "id": "153",
@@ -11287,9 +11627,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano general",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista desde estructura de madera hacia edificio principal"
     },
     {
       "id": "155",
@@ -11458,9 +11802,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "esfuerzo",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con lentes corre en galeria junto a instructora"
     },
     {
       "id": "157",
@@ -11607,9 +11957,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "carga peso",
+        "concentracion",
+        "plano medio",
+        "La Casona",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno con pechera se apoya en barra en el jardin"
     },
     {
       "id": "160",
@@ -11834,9 +12191,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "plano general",
+        "La Casona",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista del jardin con arbol grande y alfombra roja"
     },
     {
       "id": "162",
@@ -12007,9 +12369,18 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "concentracion",
+        "esfuerzo",
+        "plano medio",
+        "parque",
+        "La Casona",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino camina sobre viga con instructora supervisando"
     },
     {
       "id": "165",
@@ -12230,9 +12601,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "detalle",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Cuerda gruesa de batalla en el piso"
     },
     {
       "id": "167",
@@ -12424,9 +12799,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "esfuerzo",
+        "concentracion",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino preparandose para agitar cuerdas de batalla"
     },
     {
       "id": "170",
@@ -12551,9 +12932,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "determinacion",
+        "plano medio",
+        "gimnasio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno de espaldas con pechera Somos Tribu Fenix"
     },
     {
       "id": "172",
@@ -12733,9 +13120,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "carga peso",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino pequeno carga cuerdas de batalla con esfuerzo total"
     },
     {
       "id": "174",
@@ -12959,9 +13354,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "esfuerzo",
+        "juego en grupo",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Alumno agita cuerdas de batalla con instructor observando"
     },
     {
       "id": "177",
@@ -13105,9 +13507,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "risa",
+        "festejo",
+        "plano general",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de alumnos saludando a camara con risas"
     },
     {
       "id": "180",
@@ -13255,9 +13664,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "panoramica",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Toma aerea del balcon del edificio de La Casona"
     },
     {
       "id": "183",
