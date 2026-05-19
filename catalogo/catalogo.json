@@ -47,9 +47,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "parque",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de chicos caminando con instructor hacia glorieta en jardin"
     },
     {
       "id": "002",
@@ -145,9 +150,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "concentracion",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos con remeras Fenix reunidos escuchando instrucciones"
     },
     {
       "id": "004",
@@ -183,9 +193,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "piscina",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo caminando junto a la piscina con cartel La Casona"
     },
     {
       "id": "005",
@@ -221,9 +236,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "gimnasio",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico trepando cuerda en gimnasio con saco de boxeo"
     },
     {
       "id": "006",
@@ -259,9 +279,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista interior de La Casona con grupo de chicos entrando"
     },
     {
       "id": "007",
@@ -297,9 +320,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "naturaleza",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico saltando obstaculo de colchoneta roja en jardin"
     },
     {
       "id": "008",
@@ -390,9 +419,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "obstaculo",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico observando companeros en circuito de obstaculos"
     },
     {
       "id": "009",
@@ -631,9 +665,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "naturaleza",
+        "La Casona",
+        "concentracion",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico cruzando pasarela elevada de la casa del arbol"
     },
     {
       "id": "011",
@@ -993,9 +1034,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "naturaleza",
+        "concentracion",
+        "miedo",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico sentado en plataforma alta de madera entre arboles"
     },
     {
       "id": "013",
@@ -1179,9 +1227,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "juego en grupo",
+        "La Casona",
+        "esfuerzo",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de chicos corriendo a toda velocidad por pasillo"
     },
     {
       "id": "015",
@@ -1310,9 +1366,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "juego en grupo",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructor y chicos asomados al balcon del primer piso"
     },
     {
       "id": "017",
@@ -1408,9 +1468,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Escalera interior oscura de La Casona"
     },
     {
       "id": "019",
@@ -1539,9 +1602,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Pasillo exterior de La Casona con puertas abiertas"
     },
     {
       "id": "021",
@@ -1632,9 +1698,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "esfuerzo",
+        "juego en grupo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos interactuando con saco de boxeo en gimnasio"
     },
     {
       "id": "022",
@@ -1829,9 +1900,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico pateando saco de boxeo con fuerza"
     },
     {
       "id": "024",
@@ -2015,9 +2092,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos caminando sobre bancos en circuito de equilibrio"
     },
     {
       "id": "026",
@@ -2256,9 +2339,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "juego en grupo",
+        "risa",
+        "naturaleza",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos corriendo y riendo en jardin con luz hermosa"
     },
     {
       "id": "028",
@@ -2453,9 +2543,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "salta",
+        "concentracion",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicas saltando entre banquetas en circuito exterior"
     },
     {
       "id": "030",
@@ -2518,9 +2614,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "concentracion",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico frente a pizarra con puntajes"
     },
     {
       "id": "032",
@@ -2556,9 +2656,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "esfuerzo",
+        "determinacion",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico haciendo vertical contra la pared con instructor"
     },
     {
       "id": "033",
@@ -2616,9 +2722,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "salta",
+        "equilibrio",
+        "La Casona",
+        "concentracion",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico saltando sobre banco de madera en patio"
     },
     {
       "id": "034",
@@ -2681,9 +2793,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Balde negro con trapo rojo en patio de La Casona"
     },
     {
       "id": "036",
@@ -2785,9 +2900,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "La Casona",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chica corriendo en sprint por el patio"
     },
     {
       "id": "037",
@@ -2949,9 +3070,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos corriendo vistos desde arriba entre arboles"
     },
     {
       "id": "039",
@@ -2976,9 +3102,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicos corriendo a toda velocidad en cancha techada"
     },
     {
       "id": "040",
@@ -3003,9 +3136,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "juego en grupo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicos corriendo hacia salida de cancha techada"
     },
     {
       "id": "041",
@@ -3052,9 +3190,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "piscina",
+        "La Casona",
+        "esfuerzo",
+        "plano general",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos saltando obstaculos junto a la piscina"
     },
     {
       "id": "042",
@@ -3282,9 +3428,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "carga peso",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico tirando cuerda de batalla con expresion de esfuerzo"
     },
     {
       "id": "044",
@@ -3523,9 +3676,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "juego en grupo",
+        "naturaleza",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos en circuito de escalera horizontal en jardin"
     },
     {
       "id": "046",
@@ -3643,9 +3801,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "salta",
+        "cuerda",
+        "logro",
+        "risa",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico saltando la cuerda con gran sonrisa a camara"
     },
     {
       "id": "048",
@@ -3774,9 +3939,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "trepa",
+        "esfuerzo",
+        "determinacion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico columpiandose de cuerda entre arboles"
     },
     {
       "id": "050",
@@ -3883,9 +4055,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "corre",
+        "risa",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico corriendo feliz junto a tobogan y casa del arbol"
     },
     {
       "id": "052",
@@ -4036,9 +4214,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico asomandose por ventana de La Casona"
     },
     {
       "id": "054",
@@ -4222,9 +4403,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "parque",
+        "La Casona",
+        "plano medio",
+        "esfuerzo"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicos con pecheras saltan obstaculos en jardin"
     },
     {
       "id": "056",
@@ -4419,9 +4606,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "parque",
+        "plano medio",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico cruza viga de equilibrio de madera en parque"
     },
     {
       "id": "058",
@@ -4479,9 +4672,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "parque",
+        "plano general",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino camina sobre obstaculos de madera al aire libre"
     },
     {
       "id": "059",
@@ -4742,9 +4941,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "trepa",
+        "La Casona",
+        "plano medio",
+        "determinacion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico sube baranda metalica con capa roja"
     },
     {
       "id": "061",
@@ -4840,9 +5046,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "corre",
+        "parque",
+        "plano general",
+        "esfuerzo",
+        "juego en grupo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos con capas avanzan por circuito de obstaculos"
     },
     {
       "id": "063",
@@ -4916,9 +5130,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "detalle",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Plano desenfocado de flores y vegetacion"
     },
     {
       "id": "065",
@@ -5009,9 +5227,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con remera roja camina bajo galeria"
     },
     {
       "id": "066",
@@ -5294,9 +5516,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "parque",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista de galeria con banco y cancha al fondo"
     },
     {
       "id": "068",
@@ -5623,9 +5849,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "parque",
+        "plano medio",
+        "esfuerzo"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con pechera violeta corre por el cesped"
     },
     {
       "id": "070",
@@ -5809,9 +6040,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con pechera corre por el patio"
     },
     {
       "id": "072",
@@ -5874,9 +6109,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "parque",
+        "plano medio",
+        "risa",
+        "festejo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de chicos se abrazan y rien en el cesped"
     },
     {
       "id": "074",
@@ -5923,9 +6165,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "piscina",
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "risa",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos con capas junto a la piscina con instructor"
     },
     {
       "id": "075",
@@ -5977,9 +6226,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "detalle",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Cartel Fenix Kids en arbol visto desde abajo"
     },
     {
       "id": "077",
@@ -6004,9 +6257,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "detalle",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Cartel Fenix Kids colgado en arbol entre ramas"
     },
     {
       "id": "078",
@@ -6031,9 +6288,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "detalle",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Escudo Fenix Kids en arbol a contraluz"
     },
     {
       "id": "079",
@@ -6069,9 +6330,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "gimnasio",
+        "primer plano",
+        "esfuerzo",
+        "logro",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino colgado de anillas en gimnasio con remera Fenix"
     },
     {
       "id": "080",
@@ -6140,9 +6408,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "gimnasio",
+        "plano medio",
+        "esfuerzo"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con remera roja colgado de anillas en gimnasio"
     },
     {
       "id": "081",
@@ -6282,9 +6555,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "carga peso",
+        "plano medio",
+        "esfuerzo",
+        "juego en grupo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructor con chicos golpeando bolsa de boxeo"
     },
     {
       "id": "083",
@@ -6424,9 +6704,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "plano medio",
+        "esfuerzo",
+        "determinacion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico lanza golpe a bolsa de boxeo en galeria"
     },
     {
       "id": "085",
@@ -6660,9 +6945,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "piscina",
+        "equilibrio",
+        "obstaculo",
+        "La Casona",
+        "plano general",
+        "miedo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos cruzan escalera sobre la piscina como desafio"
     },
     {
       "id": "086",
@@ -6945,9 +7238,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "parque",
+        "plano medio",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nena camina sobre viga de equilibrio en jardin"
     },
     {
       "id": "088",
@@ -7219,9 +7518,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "parque",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Colchoneta rosa y pelota en cesped del circuito"
     },
     {
       "id": "090",
@@ -7306,9 +7609,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "naturaleza",
+        "plano medio",
+        "juego en grupo"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nenas exploran la casita del arbol de madera"
     },
     {
       "id": "092",
@@ -7371,9 +7679,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino con remera Fenix en plataforma de la casita"
     },
     {
       "id": "094",
@@ -7398,9 +7710,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "naturaleza",
+        "plano medio",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nena mira por ventana de la casita del arbol"
     },
     {
       "id": "095",
@@ -7458,9 +7775,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "naturaleza",
+        "plano medio",
+        "risa"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Tres chicos juegan dentro de la casita del arbol"
     },
     {
       "id": "096",
@@ -7600,9 +7922,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "primer plano",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico baja por tobogan amarillo de la casita"
     },
     {
       "id": "098",
@@ -7627,9 +7953,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "salta",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nena baja corriendo del tobogan amarillo"
     },
     {
       "id": "099",
@@ -7676,9 +8006,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "esfuerzo",
+        "plano general",
+        "logro",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos nenas hacen vertical contra la pared"
     },
     {
       "id": "100",
@@ -7774,9 +8110,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "cuerda",
+        "naturaleza",
+        "plano general",
+        "esfuerzo"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico trepa red de cuerdas en estructura de madera"
     },
     {
       "id": "102",
@@ -7905,9 +8247,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "cuerda",
+        "naturaleza",
+        "primer plano",
+        "determinacion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino escala red de cuerdas agarrandose con fuerza"
     },
     {
       "id": "104",
@@ -8003,9 +8352,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "parque",
+        "plano general",
+        "juego en grupo",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo recorre circuito de obstaculos al aire libre"
     },
     {
       "id": "106",
@@ -8090,9 +8445,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "primer plano",
+        "risa",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nena con lentes baja por tobogan amarillo"
     },
     {
       "id": "108",
@@ -8155,9 +8516,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con remera Fenix en balcon de La Casona"
     },
     {
       "id": "110",
@@ -8248,9 +8612,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "naturaleza",
+        "esfuerzo",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos con pecheras trepando muro junto a reja"
     },
     {
       "id": "111",
@@ -8313,9 +8684,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "naturaleza",
+        "esfuerzo",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico corriendo a toda velocidad, pelo al viento"
     },
     {
       "id": "113",
@@ -8373,9 +8751,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "equilibrio",
+        "naturaleza",
+        "concentracion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico saltando entre banquetas de madera"
     },
     {
       "id": "114",
@@ -8460,9 +8846,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "trepa",
+        "esfuerzo",
+        "naturaleza",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chica ayudando a alumna a trepar cuerda de arbol"
     },
     {
       "id": "116",
@@ -8536,9 +8929,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "risa",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico bajando por tobogan amarillo en jardin"
     },
     {
       "id": "118",
@@ -8563,9 +8961,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "sprint",
+        "esfuerzo",
+        "determinacion",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico arrancando sprint explosivo en jardin"
     },
     {
       "id": "119",
@@ -8612,9 +9017,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo con pecheras junto a circuito de banquetas"
     },
     {
       "id": "120",
@@ -8743,9 +9154,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "piscina",
+        "concentracion",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chica sobre viga de equilibrio al borde de piscina"
     },
     {
       "id": "122",
@@ -8874,9 +9292,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo recorriendo circuito de obstaculos en jardin"
     },
     {
       "id": "124",
@@ -8961,9 +9385,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "piscina",
+        "primer plano"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico arrastandose debajo de banqueta sobre colchoneta"
     },
     {
       "id": "126",
@@ -9103,9 +9532,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "detalle",
+        "concentracion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Detalle de pies sobre borde de tabla de equilibrio"
     },
     {
       "id": "128",
@@ -9245,9 +9679,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "concentracion",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico caminando sobre tabla de equilibrio"
     },
     {
       "id": "130",
@@ -9409,9 +9850,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo en fila caminando sobre riel metalico en cesped"
     },
     {
       "id": "132",
@@ -9518,9 +9965,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "naturaleza",
+        "risa",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicas jugando mientras chico observa desde banco"
     },
     {
       "id": "134",
@@ -9622,9 +10074,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "concentracion",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico parado sobre tabla elevada con palmera de fondo"
     },
     {
       "id": "135",
@@ -9753,9 +10211,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "piscina",
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista del circuito con banquetas junto a la piscina"
     },
     {
       "id": "137",
@@ -9829,9 +10291,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos chicos aplaudiendo desde el balcon"
     },
     {
       "id": "139",
@@ -9900,9 +10365,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "esfuerzo",
+        "concentracion",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico asomandose sobre muro del balcon"
     },
     {
       "id": "140",
@@ -9965,9 +10436,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "La Casona",
+        "panoramica",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista panoramica de casa del arbol con cartel La Casona"
     },
     {
       "id": "142",
@@ -10003,9 +10480,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "naturaleza",
+        "juego en grupo",
+        "plano general"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chicos y profes junto a banquetas bajo casa del arbol"
     },
     {
       "id": "143",
@@ -10030,9 +10511,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "naturaleza",
+        "risa",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico preparandose para bajar por tobogan"
     },
     {
       "id": "144",
@@ -10057,9 +10543,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "parque",
+        "risa",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico bajando por tobogan amarillo con sonrisa"
     },
     {
       "id": "145",
@@ -10117,9 +10608,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "naturaleza",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico saltando entre banquetas con instructora"
     },
     {
       "id": "146",
@@ -10226,9 +10722,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "esfuerzo",
+        "determinacion",
+        "primer plano",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico trepando escalera de madera de casa del arbol"
     },
     {
       "id": "148",
@@ -10264,9 +10766,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "esfuerzo",
+        "concentracion",
+        "plano medio",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico subiendo por escalera de red de casa del arbol"
     },
     {
       "id": "149",
@@ -10335,9 +10843,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico a mitad de escalera de red, vista desde abajo"
     },
     {
       "id": "150",
@@ -10466,9 +10978,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "obstaculo",
+        "esfuerzo",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con lentes rojos en posicion de gateo"
     },
     {
       "id": "152",
@@ -10685,9 +11202,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico caminando de espaldas con capa Fenix"
     },
     {
       "id": "154",
@@ -10860,9 +11380,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "concentracion",
+        "primer plano",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico pequeno gateando sobre viga con determinacion"
     },
     {
       "id": "156",
@@ -10958,9 +11485,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "concentracion",
+        "primer plano",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con lentes rojos gateando sobre viga, profe guiando"
     },
     {
       "id": "158",
@@ -11007,9 +11541,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "esfuerzo",
+        "piscina",
+        "plano medio",
+        "La Casona"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico con lentes y pechera avanzando sobre viga al borde"
     },
     {
       "id": "159",
@@ -11127,9 +11667,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "piscina",
+        "esfuerzo",
+        "concentracion",
+        "plano medio",
+        "La Casona",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Chico cruzando viga sobre piscina con brazos extendidos"
     },
     {
       "id": "161",
@@ -11324,9 +11872,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "La Casona",
+        "plano medio",
+        "concentracion",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino caminando sobre viga de equilibrio en jardin"
     },
     {
       "id": "163",
@@ -11395,9 +11950,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "equilibrio",
+        "obstaculo",
+        "La Casona",
+        "plano medio",
+        "esfuerzo",
+        "concentracion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructor ayuda a nino a mantener equilibrio sobre viga"
     },
     {
       "id": "164",
@@ -11603,9 +12166,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "gimnasio",
+        "La Casona",
+        "plano medio"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino frente a estructura de barras en gimnasio"
     },
     {
       "id": "166",
@@ -11701,9 +12268,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "La Casona",
+        "plano general",
+        "trepa",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Instructor prepara obstaculos mientras nino observa"
     },
     {
       "id": "168",
@@ -11761,9 +12334,17 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "salta",
+        "La Casona",
+        "plano medio",
+        "esfuerzo",
+        "determinacion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino saltando obstaculo de madera con esfuerzo"
     },
     {
       "id": "169",
@@ -11903,9 +12484,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "La Casona",
+        "primer plano",
+        "esfuerzo",
+        "concentracion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino tirando cuerda gruesa con determinacion"
     },
     {
       "id": "171",
@@ -12012,9 +12600,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "La Casona",
+        "plano medio",
+        "esfuerzo",
+        "determinacion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino pequeno arrastrando cuerda pesada con esfuerzo"
     },
     {
       "id": "173",
@@ -12176,9 +12771,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "La Casona",
+        "plano medio",
+        "esfuerzo",
+        "concentracion"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino rubio haciendo ejercicio de cuerda"
     },
     {
       "id": "175",
@@ -12236,9 +12837,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "La Casona",
+        "primer plano",
+        "esfuerzo",
+        "determinacion",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino tirando cuerda gruesa con expresion de esfuerzo maximo"
     },
     {
       "id": "176",
@@ -12389,9 +12997,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de ninos mirando paisaje desde la baranda"
     },
     {
       "id": "178",
@@ -12449,9 +13062,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "corre",
+        "La Casona",
+        "plano medio",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Dos ninos caminando junto a baranda del jardin"
     },
     {
       "id": "179",
@@ -12536,9 +13154,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "risa",
+        "festejo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Grupo de ninos y entrenador posando juntos en cancha"
     },
     {
       "id": "181",
@@ -12585,9 +13210,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "juego en grupo",
+        "La Casona",
+        "plano general",
+        "risa",
+        "parque",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos apilados jugando en cesped junto a cancha"
     },
     {
       "id": "182",
@@ -12650,9 +13282,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea de La Casona con piscina y edificio"
     },
     {
       "id": "184",
@@ -12732,9 +13370,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea frontal del edificio con piscina y jardin"
     },
     {
       "id": "185",
@@ -13072,9 +13716,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "naturaleza",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del quincho y jardin con flores"
     },
     {
       "id": "187",
@@ -13225,9 +13874,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "naturaleza",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del jardin lateral con arboles"
     },
     {
       "id": "189",
@@ -13367,9 +14021,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "La Casona",
+        "panoramica",
+        "parque",
+        "esfuerzo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Ninos trepando estructura tipo casa del arbol"
     },
     {
       "id": "191",
@@ -13580,9 +14241,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "obstaculo",
+        "La Casona",
+        "panoramica",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del circuito de obstaculos con bancos"
     },
     {
       "id": "194",
@@ -13667,9 +14333,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "La Casona",
+        "panoramica",
+        "parque",
+        "esfuerzo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Nino trepando red de cuerda vista desde drone"
     },
     {
       "id": "196",
@@ -13743,9 +14416,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del tobogan junto a casa del arbol"
     },
     {
       "id": "198",
@@ -13770,9 +14447,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "trepa",
+        "La Casona",
+        "panoramica",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea de casa del arbol con ninos jugando"
     },
     {
       "id": "199",
@@ -13830,9 +14512,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "parque",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Detalle aereo del tobogan amarillo"
     },
     {
       "id": "200",
@@ -13906,9 +14593,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "parque"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del tobogan y estructura de juegos"
     },
     {
       "id": "202",
@@ -14142,9 +14833,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea cenital de La Casona completa"
     },
     {
       "id": "203",
@@ -14273,9 +14970,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea lateral de La Casona con piscina"
     },
     {
       "id": "205",
@@ -14514,9 +15216,12 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "panoramica",
+        "naturaleza"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea de la ciudad con horizonte"
     },
     {
       "id": "207",
@@ -14727,9 +15432,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "panoramica",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del rio con puente y ciudad al fondo"
     },
     {
       "id": "210",
@@ -14858,9 +15567,14 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "detalle"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista cenital de zona piscina con colchonetas"
     },
     {
       "id": "212",
@@ -14907,9 +15621,13 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista cenital de piscina con nino"
     },
     {
       "id": "213",
@@ -14994,9 +15712,15 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "cuerda",
+        "La Casona",
+        "panoramica",
+        "esfuerzo",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista cenital de ninos haciendo ejercicio con cuerdas"
     },
     {
       "id": "215",
@@ -15059,9 +15783,16 @@
           "descripcion": ""
         }
       ],
-      "tags_generales": [],
+      "tags_generales": [
+        "La Casona",
+        "panoramica",
+        "piscina",
+        "naturaleza",
+        "destacado"
+      ],
       "mejor_segmento": "",
-      "notas": ""
+      "notas": "Vista aerea del quincho con piscina y jardin"
     }
-  ]
+  ],
+  "clasificado": "2026-05-19T18:49:46.358Z"
 }
