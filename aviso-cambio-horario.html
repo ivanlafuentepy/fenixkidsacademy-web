@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FENIX Kids — Aviso Cambio Horario</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #ff6b00;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #ff6b00;
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #888;
+            font-size: 0.95em;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        .stat { text-align: center; }
+        .stat-num {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6b00;
+        }
+        .stat-label {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .msg-template {
+            background: #111;
+            border-left: 3px solid #ff6b00;
+            padding: 14px 18px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9em;
+            color: #ccc;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        .section-title {
+            color: #ff6b00;
+            font-size: 1.3em;
+            margin: 30px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #333;
+        }
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        .card:hover { border-color: #ff6b00; }
+        .card-header { margin-bottom: 10px; }
+        .padre-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+        }
+        .hijos {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        .badge-green { background: #1a3a1a; color: #4caf50; }
+        .badge-blue { background: #1a2a3a; color: #42a5f5; }
+        .badge-orange { background: #3a2a1a; color: #ff9800; }
+        .badge-gray { background: #2a2a2a; color: #999; }
+        .telefono {
+            color: #666;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-whatsapp {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: background 0.2s, opacity 0.3s;
+        }
+        .btn-whatsapp:hover { background: #1ea952; }
+        .btn-papa { background: #2196f3; }
+        .btn-papa:hover { background: #1976d2; }
+        .btn-mama { background: #e91e90; }
+        .btn-mama:hover { background: #c2185b; }
+        .btn-whatsapp.sent {
+            opacity: 0.4;
+        }
+        .btn-whatsapp.sent::after {
+            content: ' ✓';
+        }
+        .counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff6b00;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>FENIX Kids</h1>
+        <p>Aviso Cambio Horario — Sab 24 y 31 de Mayo 2026</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">34</div>
+                <div class="stat-label">Familias</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">34</div>
+                <div class="stat-label">Pruebas</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="msg-template">Hola [nombre]! queria avisarte que como este y el proximo sabado anuncio mucho frio, y a las 9:30 el pasto sigue mojado, estaremos teniendo Fenix Kids solo a las 11 y a las 15:30h
+
+Te gustaria agendar para uno de esos dos horarios?</div>
+
+    <h2 class="section-title">FAMILIAS INSCRIPTAS (34)</h2>
+    <div class="card">
+    <div class="card-header">
+        <div class="padre-name">Alberto &amp; Carolina</div>
+    </div>
+    <div class="hijos">Horacio <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">M: 595981541002</div>
+    <div class="buttons"><a href="https://wa.me/595981541002?text=Hola%20Carolina%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Carolina (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Alcides &amp; Guadalupe</div>
+    </div>
+    <div class="hijos">Tomas Thiago <span class="badge badge-orange">10 a</span> &bull; Joaquin Nicolás <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">P: 0991632113 | M: 595991921375</div>
+    <div class="buttons"><a href="https://wa.me/595991632113?text=Hola%20Alcides%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Alcides (papa)</a><a href="https://wa.me/595991921375?text=Hola%20Guadalupe%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Guadalupe (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Aldo &amp; Sandra</div>
+    </div>
+    <div class="hijos">Fiorella <span class="badge badge-orange">9 a</span> &bull; Fabrizio <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 0971360342 | M: 0971385208</div>
+    <div class="buttons"><a href="https://wa.me/595971360342?text=Hola%20Aldo%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Aldo (papa)</a><a href="https://wa.me/595971385208?text=Hola%20Sandra%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Sandra (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Antonia Iliada</div>
+    </div>
+    <div class="hijos">Olivia Pilar <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">M: +595982778542</div>
+    <div class="buttons"><a href="https://wa.me/595982778542?text=Hola%20Antonia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Antonia (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Beatriz</div>
+    </div>
+    <div class="hijos">Mateo Daniel <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">M: 595984842052</div>
+    <div class="buttons"><a href="https://wa.me/595984842052?text=Hola%20Beatriz%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Beatriz (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Biviana</div>
+    </div>
+    <div class="hijos">Christopher <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">M: 595973686713</div>
+    <div class="buttons"><a href="https://wa.me/595973686713?text=Hola%20Biviana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Biviana (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Carlos Raúl &amp; Blanca Zunilda</div>
+    </div>
+    <div class="hijos">Arianna <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">P: 0981-700075 | M: 0981-700076</div>
+    <div class="buttons"><a href="https://wa.me/595981700075?text=Hola%20Carlos%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Carlos (papa)</a><a href="https://wa.me/595981700076?text=Hola%20Blanca%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Blanca (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Christian &amp; Yessica</div>
+    </div>
+    <div class="hijos">Lucas <span class="badge badge-orange">9 a</span> &bull; Ana <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 0981369764 | M: 0981486156</div>
+    <div class="buttons"><a href="https://wa.me/595981369764?text=Hola%20Christian%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Christian (papa)</a><a href="https://wa.me/595981486156?text=Hola%20Yessica%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Yessica (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">David &amp; Silvana</div>
+    </div>
+    <div class="hijos">Demian <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">P: 595986393501 | M: 595991650127</div>
+    <div class="buttons"><a href="https://wa.me/595986393501?text=Hola%20David%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a David (papa)</a><a href="https://wa.me/595991650127?text=Hola%20Silvana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Silvana (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Diana</div>
+    </div>
+    <div class="hijos">Paula <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">M: 595991406651</div>
+    <div class="buttons"><a href="https://wa.me/595991406651?text=Hola%20Diana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Diana (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Domingo &amp; Susan</div>
+    </div>
+    <div class="hijos">Bruno Sebastián <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: 0971447900 | M: 0984891003</div>
+    <div class="buttons"><a href="https://wa.me/595971447900?text=Hola%20Domingo%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Domingo (papa)</a><a href="https://wa.me/595984891003?text=Hola%20Susan%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Susan (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Erica</div>
+    </div>
+    <div class="hijos">Tomas Benjamin <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">M: 595961550099</div>
+    <div class="buttons"><a href="https://wa.me/595961550099?text=Hola%20Erica%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Erica (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Fernando &amp; Eugenia</div>
+    </div>
+    <div class="hijos">Nicolas <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: 0994254940 | M: +595 972 126855</div>
+    <div class="buttons"><a href="https://wa.me/595994254940?text=Hola%20Fernando%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Fernando (papa)</a><a href="https://wa.me/595972126855?text=Hola%20Eugenia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Eugenia (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Genesis</div>
+    </div>
+    <div class="hijos">Mathias <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">M: 595981130388</div>
+    <div class="buttons"><a href="https://wa.me/595981130388?text=Hola%20Genesis%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Genesis (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Hilda</div>
+    </div>
+    <div class="hijos">Helena <span class="badge badge-blue">6 a</span></div>
+    <div class="telefono">M: 0972816687</div>
+    <div class="buttons"><a href="https://wa.me/595972816687?text=Hola%20Hilda%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Hilda (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Jaime &amp; Eileen</div>
+    </div>
+    <div class="hijos">Leisa Monserrat <span class="badge badge-orange">11 a</span></div>
+    <div class="telefono">P: 0971886260 | M: 0994881391</div>
+    <div class="buttons"><a href="https://wa.me/595971886260?text=Hola%20Jaime%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Jaime (papa)</a><a href="https://wa.me/595994881391?text=Hola%20Eileen%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Eileen (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Janeth</div>
+    </div>
+    <div class="hijos">Mauro Jesus <span class="badge badge-green">4 a</span> &bull; Bruno Marcelo <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">M: 595971886648</div>
+    <div class="buttons"><a href="https://wa.me/595971886648?text=Hola%20Janeth%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Janeth (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Jorge Andrés &amp; JAZMIN</div>
+    </div>
+    <div class="hijos">Fiorella <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 0981397589 | M: 0981683435</div>
+    <div class="buttons"><a href="https://wa.me/595981397589?text=Hola%20Jorge%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Jorge (papa)</a><a href="https://wa.me/595981683435?text=Hola%20JAZMIN%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a JAZMIN (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Jose &amp; Patricia</div>
+    </div>
+    <div class="hijos">Jose Ignacio <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 0981246260 | M: 0982 685 019</div>
+    <div class="buttons"><a href="https://wa.me/595981246260?text=Hola%20Jose%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Jose (papa)</a><a href="https://wa.me/595982685019?text=Hola%20Patricia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Patricia (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">José &amp; Adriana</div>
+    </div>
+    <div class="hijos">Jamila <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">P: 0985923511 | M: 0984159874</div>
+    <div class="buttons"><a href="https://wa.me/595985923511?text=Hola%20Jos%C3%A9%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a José (papa)</a><a href="https://wa.me/595984159874?text=Hola%20Adriana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Adriana (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Juan Miguel &amp; Fátima</div>
+    </div>
+    <div class="hijos">Oliver Sebastián <span class="badge badge-blue">8 a</span> &bull; Lucas Ezequiel <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 0972102321 | M: 0981182714</div>
+    <div class="buttons"><a href="https://wa.me/595972102321?text=Hola%20Juan%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Juan (papa)</a><a href="https://wa.me/595981182714?text=Hola%20F%C3%A1tima%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Fátima (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Luis &amp; Marta</div>
+    </div>
+    <div class="hijos">Olivia <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: +595971964001 | M: +595971977907</div>
+    <div class="buttons"><a href="https://wa.me/595971964001?text=Hola%20Luis%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Luis (papa)</a><a href="https://wa.me/595971977907?text=Hola%20Marta%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Marta (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Lujan</div>
+    </div>
+    <div class="hijos">Thiago <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">M: 595981189205</div>
+    <div class="buttons"><a href="https://wa.me/595981189205?text=Hola%20Lujan%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Lujan (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Marcos Daniel</div>
+    </div>
+    <div class="hijos">Dara Isabella <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595982419803</div>
+    <div class="buttons"><a href="https://wa.me/595982419803?text=Hola%20Marcos%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Marcos (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Mauricio &amp; Paula</div>
+    </div>
+    <div class="hijos">Tiziana <span class="badge badge-orange">11 a</span></div>
+    <div class="telefono">P: 0981913695 | M: 0994763989</div>
+    <div class="buttons"><a href="https://wa.me/595981913695?text=Hola%20Mauricio%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Mauricio (papa)</a><a href="https://wa.me/595994763989?text=Hola%20Paula%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Paula (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Máximo &amp; Fabianna</div>
+    </div>
+    <div class="hijos">Carla Maria <span class="badge badge-blue">7 a</span> &bull; Maximiliano <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">P: 0981243704 | M: 0981913816</div>
+    <div class="buttons"><a href="https://wa.me/595981243704?text=Hola%20M%C3%A1ximo%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Máximo (papa)</a><a href="https://wa.me/595981913816?text=Hola%20Fabianna%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Fabianna (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Raul &amp; Ilse</div>
+    </div>
+    <div class="hijos">Isabella <span class="badge badge-blue">6 a</span> &bull; Giuliana <span class="badge badge-blue">6 a</span></div>
+    <div class="telefono">P: 0981868971 | M: 595981102495</div>
+    <div class="buttons"><a href="https://wa.me/595981868971?text=Hola%20Raul%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Raul (papa)</a><a href="https://wa.me/595981102495?text=Hola%20Ilse%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Ilse (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Rubén &amp; Liza</div>
+    </div>
+    <div class="hijos">Amaro <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: 0981277920 | M: 0981277930</div>
+    <div class="buttons"><a href="https://wa.me/595981277920?text=Hola%20Rub%C3%A9n%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Rubén (papa)</a><a href="https://wa.me/595981277930?text=Hola%20Liza%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Liza (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Sebastian &amp; Valeria</div>
+    </div>
+    <div class="hijos">Martín <span class="badge badge-orange">9 a</span> &bull; Mariana <span class="badge badge-orange">11 a</span></div>
+    <div class="telefono">P: 0961 706 166 | M: 0992947600</div>
+    <div class="buttons"><a href="https://wa.me/595961706166?text=Hola%20Sebastian%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Sebastian (papa)</a><a href="https://wa.me/595992947600?text=Hola%20Valeria%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Valeria (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Sebastián</div>
+    </div>
+    <div class="hijos">Alan <span class="badge badge-gray">s/edad</span> &bull; Lucas <span class="badge badge-green">2 a</span></div>
+    <div class="telefono">P: 0981700677</div>
+    <div class="buttons"><a href="https://wa.me/595981700677?text=Hola%20Sebasti%C3%A1n%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Sebastián (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Veronica</div>
+    </div>
+    <div class="hijos">Mariano Emanuel <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">M: 595992533578</div>
+    <div class="buttons"><a href="https://wa.me/595992533578?text=Hola%20Veronica%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Veronica (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Verónica</div>
+    </div>
+    <div class="hijos">Catalina <span class="badge badge-blue">7 a</span> &bull; Ernesto <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">M: 595982935412</div>
+    <div class="buttons"><a href="https://wa.me/595982935412?text=Hola%20Ver%C3%B3nica%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Verónica (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Victor Hugo &amp; Maria Teresa</div>
+    </div>
+    <div class="hijos">Benjamin <span class="badge badge-orange">9 a</span> &bull; Luciana <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 0981 529457 | M: 0981 163981</div>
+    <div class="buttons"><a href="https://wa.me/595981529457?text=Hola%20Victor%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Victor (papa)</a><a href="https://wa.me/595981163981?text=Hola%20Maria%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Maria (mama)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Yandry &amp; Alejandra</div>
+    </div>
+    <div class="hijos">Augusto <span class="badge badge-blue">7 a</span> &bull; Camila <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 0972135109 | M: +595 991 979328</div>
+    <div class="buttons"><a href="https://wa.me/595972135109?text=Hola%20Yandry%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Yandry (papa)</a><a href="https://wa.me/595991979328?text=Hola%20Alejandra%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-mama" onclick="markSent(this)">Enviar a Alejandra (mama)</a></div>
+</div>
+
+
+    <h2 class="section-title">PRUEBAS / LEADS (34)</h2>
+    <div class="card">
+    <div class="card-header">
+        <div class="padre-name">Alejandra Belén</div>
+    </div>
+    <div class="hijos">Ian José <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595961739906</div>
+    <div class="buttons"><a href="https://wa.me/595961739906?text=Hola%20Alejandra%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Alejandra (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Claudia</div>
+    </div>
+    <div class="hijos">Thomas <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595971218110</div>
+    <div class="buttons"><a href="https://wa.me/595971218110?text=Hola%20Claudia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Claudia (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">César Manuel</div>
+    </div>
+    <div class="hijos">César Emanuel <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">P: 595985296645</div>
+    <div class="buttons"><a href="https://wa.me/595985296645?text=Hola%20C%C3%A9sar%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a César (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Debora</div>
+    </div>
+    <div class="hijos">Samuel <span class="badge badge-green">5 a</span> &bull; Fabrizio <span class="badge badge-orange">10 a</span></div>
+    <div class="telefono">P: 595971115636</div>
+    <div class="buttons"><a href="https://wa.me/595971115636?text=Hola%20Debora%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Debora (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Dirse</div>
+    </div>
+    <div class="hijos">Milagros <span class="badge badge-orange">9 a</span> &bull; Alejandra <span class="badge badge-blue">6 a</span> &bull; Alfredo <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">P: 595982138554</div>
+    <div class="buttons"><a href="https://wa.me/595982138554?text=Hola%20Dirse%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Dirse (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Esteban</div>
+    </div>
+    <div class="hijos">Enzo Manuel <span class="badge badge-blue">6 a</span></div>
+    <div class="telefono">P: 595995623883</div>
+    <div class="buttons"><a href="https://wa.me/595995623883?text=Hola%20Esteban%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Esteban (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Fabiana</div>
+    </div>
+    <div class="hijos">Amanda Milena <span class="badge badge-green">4 a</span> &bull; Alana <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">P: 595985765996</div>
+    <div class="buttons"><a href="https://wa.me/595985765996?text=Hola%20Fabiana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Fabiana (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">GILDA</div>
+    </div>
+    <div class="hijos">SEBASTIAN <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">P: 595981410283</div>
+    <div class="buttons"><a href="https://wa.me/595981410283?text=Hola%20GILDA%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a GILDA (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Juan</div>
+    </div>
+    <div class="hijos">Marcelo <span class="badge badge-green">4 a</span> &bull; Mateo <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 595984417866</div>
+    <div class="buttons"><a href="https://wa.me/595984417866?text=Hola%20Juan%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Juan (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Laura</div>
+    </div>
+    <div class="hijos">Jonathan Emmanuel <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 595992535534</div>
+    <div class="buttons"><a href="https://wa.me/595992535534?text=Hola%20Laura%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Laura (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Laura</div>
+    </div>
+    <div class="hijos">Marttina <span class="badge badge-blue">6 a</span></div>
+    <div class="telefono">P: 595984179913</div>
+    <div class="buttons"><a href="https://wa.me/595984179913?text=Hola%20Laura%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Laura (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Lee Jun</div>
+    </div>
+    <div class="hijos">Max Ki Bae <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 595992247697</div>
+    <div class="buttons"><a href="https://wa.me/595992247697?text=Hola%20Lee%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Lee (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Leticia</div>
+    </div>
+    <div class="hijos">Jeremias Julian <span class="badge badge-blue">8 a</span> &bull; Matias Francisco <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">P: 595992287742</div>
+    <div class="buttons"><a href="https://wa.me/595992287742?text=Hola%20Leticia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Leticia (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Lilia</div>
+    </div>
+    <div class="hijos">Alisa <span class="badge badge-blue">6 a</span> &bull; Noa <span class="badge badge-orange">12 a</span></div>
+    <div class="telefono">P: 595984479193</div>
+    <div class="buttons"><a href="https://wa.me/595984479193?text=Hola%20Lilia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Lilia (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Liz Paula</div>
+    </div>
+    <div class="hijos">Franco Bautista <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 595982400160</div>
+    <div class="buttons"><a href="https://wa.me/595982400160?text=Hola%20Liz%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Liz (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Lorena</div>
+    </div>
+    <div class="hijos">Tirza Agostina <span class="badge badge-blue">6 a</span> &bull; Carlos David <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">P: 595981105773</div>
+    <div class="buttons"><a href="https://wa.me/595981105773?text=Hola%20Lorena%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Lorena (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Luis</div>
+    </div>
+    <div class="hijos">Lucas Samuel <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">P: 595983273528</div>
+    <div class="buttons"><a href="https://wa.me/595983273528?text=Hola%20Luis%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Luis (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Marcelo</div>
+    </div>
+    <div class="hijos">Mauricio <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595994468797</div>
+    <div class="buttons"><a href="https://wa.me/595994468797?text=Hola%20Marcelo%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Marcelo (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Marco</div>
+    </div>
+    <div class="hijos">Piero <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">P: 595981614009</div>
+    <div class="buttons"><a href="https://wa.me/595981614009?text=Hola%20Marco%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Marco (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Maria</div>
+    </div>
+    <div class="hijos">Lucía <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">P: 595983957781</div>
+    <div class="buttons"><a href="https://wa.me/595983957781?text=Hola%20Maria%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Maria (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Maria Jose</div>
+    </div>
+    <div class="hijos">Ivanna Victoria <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">P: 595981601378</div>
+    <div class="buttons"><a href="https://wa.me/595981601378?text=Hola%20Maria%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Maria (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Milagros</div>
+    </div>
+    <div class="hijos">Joaquín Eligio <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595971462496</div>
+    <div class="buttons"><a href="https://wa.me/595971462496?text=Hola%20Milagros%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Milagros (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Nancy</div>
+    </div>
+    <div class="hijos">Sebastián <span class="badge badge-green">4 a</span></div>
+    <div class="telefono">P: 595981980706</div>
+    <div class="buttons"><a href="https://wa.me/595981980706?text=Hola%20Nancy%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Nancy (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Pamela</div>
+    </div>
+    <div class="hijos">Rafael Antonio <span class="badge badge-green">2 a</span></div>
+    <div class="telefono">P: 595983186863</div>
+    <div class="buttons"><a href="https://wa.me/595983186863?text=Hola%20Pamela%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Pamela (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Patricia</div>
+    </div>
+    <div class="hijos">Ezequiel David <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 595985770539</div>
+    <div class="buttons"><a href="https://wa.me/595985770539?text=Hola%20Patricia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Patricia (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Patricia</div>
+    </div>
+    <div class="hijos">Marco Andrés <span class="badge badge-blue">8 a</span></div>
+    <div class="telefono">P: 595982261187</div>
+    <div class="buttons"><a href="https://wa.me/595982261187?text=Hola%20Patricia%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Patricia (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Rocio</div>
+    </div>
+    <div class="hijos">Martin <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 595982445631</div>
+    <div class="buttons"><a href="https://wa.me/595982445631?text=Hola%20Rocio%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Rocio (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Roque</div>
+    </div>
+    <div class="hijos">Facundo <span class="badge badge-green">5 a</span></div>
+    <div class="telefono">P: 595971676325</div>
+    <div class="buttons"><a href="https://wa.me/595971676325?text=Hola%20Roque%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Roque (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Ruth</div>
+    </div>
+    <div class="hijos">Piero <span class="badge badge-orange">10 a</span> &bull; Isaac <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 595973295552</div>
+    <div class="buttons"><a href="https://wa.me/595973295552?text=Hola%20Ruth%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Ruth (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Sixinio Cristobal</div>
+    </div>
+    <div class="hijos">Maria Isabella <span class="badge badge-blue">7 a</span> &bull; Sixinio Cristobal <span class="badge badge-gray">s/edad</span> &bull; Pauka Arami <span class="badge badge-gray">s/edad</span></div>
+    <div class="telefono">P: 595971961717</div>
+    <div class="buttons"><a href="https://wa.me/595971961717?text=Hola%20Sixinio%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Sixinio (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Solange</div>
+    </div>
+    <div class="hijos">Matheo <span class="badge badge-green">4 a</span> &bull; Hannah <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: 595991278888</div>
+    <div class="buttons"><a href="https://wa.me/595991278888?text=Hola%20Solange%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Solange (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Soraya</div>
+    </div>
+    <div class="hijos">Mateo <span class="badge badge-orange">9 a</span></div>
+    <div class="telefono">P: 595973564545</div>
+    <div class="buttons"><a href="https://wa.me/595973564545?text=Hola%20Soraya%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Soraya (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Victor</div>
+    </div>
+    <div class="hijos">Amira <span class="badge badge-blue">7 a</span> &bull; Eladio Andres <span class="badge badge-green">3 a</span></div>
+    <div class="telefono">P: 595981634024</div>
+    <div class="buttons"><a href="https://wa.me/595981634024?text=Hola%20Victor%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Victor (papa)</a></div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <div class="padre-name">Viviana</div>
+    </div>
+    <div class="hijos">Franco Manuel <span class="badge badge-blue">7 a</span></div>
+    <div class="telefono">P: 595983888277</div>
+    <div class="buttons"><a href="https://wa.me/595983888277?text=Hola%20Viviana%21%20queria%20avisarte%20que%20como%20este%20y%20el%20proximo%20sabado%20anuncio%20mucho%20frio%2C%20y%20a%20las%209%3A30%20el%20pasto%20sigue%20mojado%2C%20estaremos%20teniendo%20Fenix%20Kids%20solo%20a%20las%2011%20y%20a%20las%2015%3A30h%0A%0ATe%20gustaria%20agendar%20para%20uno%20de%20esos%20dos%20horarios%3F" target="_blank" class="btn-whatsapp btn-papa" onclick="markSent(this)">Enviar a Viviana (papa)</a></div>
+</div>
+
+
+    <div class="counter" id="counter">0 enviados</div>
+
+    <script>
+        const sentKey = 'fenix-cambio-horario-sent';
+        const sent = new Set(JSON.parse(localStorage.getItem(sentKey) || '[]'));
+
+        document.querySelectorAll('.btn-whatsapp').forEach((btn, i) => {
+            btn.dataset.idx = i;
+            if (sent.has(i)) btn.classList.add('sent');
+        });
+        updateCounter();
+
+        function markSent(btn) {
+            const idx = parseInt(btn.dataset.idx);
+            setTimeout(() => {
+                btn.classList.add('sent');
+                sent.add(idx);
+                localStorage.setItem(sentKey, JSON.stringify([...sent]));
+                updateCounter();
+            }, 500);
+        }
+
+        function updateCounter() {
+            const total = document.querySelectorAll('.btn-whatsapp').length;
+            const sentCount = document.querySelectorAll('.btn-whatsapp.sent').length;
+            document.getElementById('counter').textContent = sentCount + '/' + total + ' enviados';
+        }
+    </script>
+</body>
+</html>
