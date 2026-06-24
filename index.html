@@ -4,751 +4,637 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fenix Kids Academy | Entrenamiento Infantil · Asunción, Paraguay</title>
-  <meta name="description" content="Programa de entrenamiento integral para niños de 3 a 12 años. Desarrollamos habilidades físicas, emocionales y mentales. Parque Fenix Kids · La Casona Lafuente.">
+  <meta name="description" content="Acá comienzan sus mejores aventuras. Programa de entrenamiento integral para niños de 4 a 12 años: movimiento, diversión y amigos en cada desafío. Sábados en La Casona Lafuente, Asunción.">
+  <meta name="theme-color" content="#163a8a">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fenix Kids Academy · Acá comienzan sus mejores aventuras">
+  <meta property="og:description" content="Entrenamiento integral para niños de 4 a 12 años. Movimiento, diversión y amigos en cada desafío. Sábados en La Casona Lafuente.">
+  <meta property="og:image" content="assets/grupo-casona.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --blue:       #1e4db7;
       --blue-dark:  #163a8a;
+      --blue-deep:  #0f2a6e;
       --blue-light: #3b6fd4;
       --orange:     #f5a623;
       --orange-dark:#c8821a;
       --green:      #2d7a3a;
       --green-light:#38a047;
+      --wa:         #25D366;
       --cream:      #fdf6e3;
-      --brown:      #7b4f1e;
+      --cream-2:    #f7eccf;
       --text:       #1a1a1a;
+      --text-soft:  #4a4a4a;
+      --radius:     18px;
+      --shadow:     0 10px 30px rgba(15,42,110,0.12);
+      --shadow-lg:  0 20px 50px rgba(15,42,110,0.18);
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--cream);
       color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .display {
+      font-family: 'Fredoka', system-ui, sans-serif;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+
+    .section { padding: 72px 0; }
+    .section-head { text-align: center; margin-bottom: 44px; }
+    .section-head h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--blue-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-head .kicker {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange-dark);
+      margin-bottom: 8px;
+    }
+    .divider {
+      width: 70px; height: 4px;
+      background: linear-gradient(90deg, var(--orange-dark), var(--orange));
+      border-radius: 4px; margin: 14px auto 0;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,42,110,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(245,166,35,0.25);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 22px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-brand img { width: 38px; height: 38px; object-fit: contain; }
+    .nav-brand span {
+      font-family: 'Fredoka', sans-serif; font-weight: 600;
+      color: #fff; font-size: 1.05rem; letter-spacing: 0.5px;
+    }
+    .nav-brand span b { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.82); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500; padding: 8px 12px; border-radius: 8px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.nav-cta {
+      background: var(--wa); color: #fff; font-weight: 700;
+    }
+    .nav-links a.nav-cta:hover { background: #1fb855; }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 6px; }
+    .nav-toggle span {
+      display: block; width: 26px; height: 3px; background: #fff;
+      border-radius: 3px; margin: 5px 0; transition: .3s;
+    }
+
+    @media (max-width: 820px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: rgba(15,42,110,0.98); padding: 8px 16px 16px;
+        max-height: 0; overflow: hidden; transition: max-height .35s ease;
+      }
+      .nav-links.open { max-height: 420px; }
+      .nav-links a { padding: 12px 10px; }
+      .nav-links a.nav-cta { text-align: center; margin-top: 8px; }
+      .nav-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; }
+      .nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     }
 
     /* ─── HERO ─── */
     .hero {
-      background: linear-gradient(160deg, #1a3a80 0%, #163a8a 40%, #0f2a6e 100%);
-      padding: 50px 20px 60px;
-      text-align: center;
       position: relative;
-      overflow: hidden;
+      min-height: 88vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 60px 22px 70px;
+      background:
+        linear-gradient(180deg, rgba(15,42,110,0.82) 0%, rgba(15,42,110,0.72) 45%, rgba(15,42,110,0.92) 100%),
+        url('assets/grupo-casona.jpg') center 30% / cover no-repeat;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.18) 0%, transparent 70%);
+    .hero::after {
+      content:''; position:absolute; left:0; right:0; bottom:-1px; height:90px;
+      background: linear-gradient(180deg, transparent, var(--cream));
     }
-
+    .hero-content { position: relative; z-index: 2; max-width: 760px; }
     .hero-logo {
-      width: 240px;
-      max-width: 60vw;
-      display: block;
-      margin: 0 auto 24px;
-      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
+      width: 132px; margin: 0 auto 22px; display: block;
+      filter: drop-shadow(0 10px 28px rgba(0,0,0,0.55));
+      animation: float 5s ease-in-out infinite;
     }
-
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
     .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 1.1;
+      font-size: clamp(2.1rem, 6.5vw, 3.6rem);
+      color: #fff; text-transform: uppercase; letter-spacing: 1px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
-
-    .hero h1 span {
-      color: var(--orange);
-    }
-
+    .hero h1 .o { color: var(--orange); }
     .hero .tagline {
-      margin-top: 14px;
-      color: rgba(255,255,255,0.85);
-      font-size: 1.05rem;
-      font-style: italic;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 18px auto 0; max-width: 540px;
+      color: rgba(255,255,255,0.92); font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 500; line-height: 1.5;
     }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
+    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .badge {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 20px;
-      padding: 6px 16px;
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 600;
+      background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(4px); border-radius: 30px; padding: 7px 16px;
+      color: #fff; font-size: 0.9rem; font-weight: 600;
     }
+    .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      width: 70px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--orange-dark), var(--orange), var(--orange-dark));
-      border-radius: 2px;
-      margin: 16px auto;
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 26px; border-radius: 12px; text-decoration: none;
+      font-size: 0.98rem; font-weight: 700; cursor: pointer; border: 0;
+      transition: transform .15s, box-shadow .2s, opacity .2s;
     }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-wa { background: var(--wa); color: #fff; box-shadow: 0 8px 22px rgba(37,211,102,0.35); }
+    .btn-wa:hover { box-shadow: 0 12px 28px rgba(37,211,102,0.5); }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+    .btn-orange { background: linear-gradient(135deg, var(--orange-dark), var(--orange)); color: #fff; box-shadow: 0 8px 22px rgba(245,166,35,0.35); }
+    .btn-ig { background: linear-gradient(135deg,#833ab4 0%,#fd1d1d 50%,#fcb045 100%); color:#fff; }
+    .ic-btn { width: 1.15em; height: 1.15em; fill: currentColor; vertical-align: -0.18em; margin-right: 4px; }
+
+    /* ─── REDES SOCIALES (íconos circulares) ─── */
+    .socials { display: flex; flex-wrap: wrap; gap: 12px; }
+    .soc {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
+      color: #fff; text-decoration: none;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+    .soc svg { width: 22px; height: 22px; fill: currentColor; }
+    .soc:hover { transform: translateY(-4px); }
+    .soc.wa:hover { background: #25D366; border-color: #25D366; }
+    .soc.ig:hover { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); border-color: transparent; }
+    .soc.tt:hover { background: #000; border-color: #000; }
+    .soc.fb:hover { background: #1877F2; border-color: #1877F2; }
+    .soc.yt:hover { background: #FF0000; border-color: #FF0000; }
 
     /* ─── ABOUT ─── */
-    .about {
-      background: #fff;
-      padding: 54px 24px;
-      text-align: center;
+    .about { background: #fff; }
+    .about-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
     }
-
-    .about h2 {
-      font-size: 1.5rem;
-      color: var(--blue-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
+    .about-text p { color: var(--text-soft); line-height: 1.8; font-size: 1.02rem; margin-bottom: 14px; }
+    .about-text strong { color: var(--blue-dark); }
+    .about-quote {
+      margin-top: 22px; padding: 16px 20px; border-left: 4px solid var(--orange);
+      background: var(--cream); border-radius: 0 12px 12px 0;
+      font-family: 'Fredoka', sans-serif; font-size: 1.15rem; color: var(--blue-dark); font-weight: 500;
     }
-
-    .about p {
-      max-width: 640px;
-      margin: 0 auto;
-      color: #444;
-      line-height: 1.8;
-      font-size: 1rem;
+    .about-mascot { text-align: center; }
+    .about-mascot img {
+      width: 100%; max-width: 320px; border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
     }
+    @media (max-width: 760px){ .about-grid{ grid-template-columns:1fr; gap:28px; } .about-mascot{ order:-1; } .about-mascot img{ max-width:240px; } }
 
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 16px;
-      max-width: 720px;
-      margin: 32px auto 0;
+    .nota-edad {
+      max-width: 860px; margin: 40px auto 0;
+      background: var(--cream); border: 2px dashed var(--orange);
+      border-radius: var(--radius); padding: 26px 28px;
+      display: flex; gap: 18px; align-items: flex-start;
     }
+    .nota-edad .ne-ic { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+    .nota-edad h3 { color: var(--blue-dark); font-size: 1.2rem; margin-bottom: 8px; }
+    .nota-edad p { color: var(--text-soft); line-height: 1.7; font-size: 0.98rem; }
+    .nota-edad p + p { margin-top: 10px; }
+    .nota-edad strong { color: var(--blue-dark); }
+    @media (max-width: 560px){ .nota-edad{ flex-direction: column; gap: 10px; padding: 22px; } }
 
-    .pillar {
-      background: var(--cream);
-      border-radius: 12px;
-      padding: 22px 14px;
-      text-align: center;
-      border: 2px solid rgba(30,77,183,0.1);
+    /* ─── BENEFICIOS ─── */
+    .benes { background: var(--cream); }
+    .benes-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+      gap: 16px; max-width: 920px; margin: 0 auto;
     }
+    .bene {
+      background: #fff; border-radius: 14px; padding: 24px 16px; text-align: center;
+      border: 2px solid rgba(30,77,183,0.08); box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .bene:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .bene .ic { font-size: 2.1rem; margin-bottom: 8px; }
+    .bene .lb { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--blue-dark); font-size: 1rem; }
 
-    .pillar .icon { font-size: 2rem; margin-bottom: 8px; }
-    .pillar .label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--blue-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    /* ─── GALERIA ─── */
+    .galeria { background: #fff; }
+    .gal-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px; gap: 14px;
+    }
+    .gal-item {
+      overflow: hidden; border-radius: 14px; box-shadow: var(--shadow);
+      position: relative;
+    }
+    .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+    .gal-item:hover img { transform: scale(1.07); }
+    .gal-item.big { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 760px){
+      .gal-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 160px; }
+      .gal-item.big { grid-column: span 2; grid-row: span 1; height: 220px; }
     }
 
     /* ─── HORARIOS ─── */
-    .horarios-wrap {
-      background: linear-gradient(135deg, #1e4db7, #163a8a);
-      padding: 54px 24px;
+    .horarios { background: linear-gradient(150deg, var(--blue-dark), var(--blue-deep)); color: #fff; }
+    .horarios .section-head h2 { color: var(--orange); }
+    .horarios .section-head .kicker { color: rgba(255,255,255,0.7); }
+    .hor-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+    .hor-cards { display: grid; gap: 18px; }
+    .hor-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius); padding: 26px 28px; backdrop-filter: blur(4px);
+      display: flex; align-items: center; gap: 20px;
     }
-
-    .horarios-wrap h2 {
-      text-align: center;
-      color: var(--orange);
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: 800;
+    .hor-card .clock { font-size: 2.4rem; }
+    .hor-card .hora { font-family:'Fredoka',sans-serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+    .hor-card .lbl { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 4px; }
+    .hor-day {
+      text-align: center; font-family:'Fredoka',sans-serif; font-weight: 600;
+      font-size: 1.3rem; color: var(--orange); letter-spacing: 1px; margin-bottom: 4px;
     }
-
-    .horarios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      max-width: 700px;
-      margin: 32px auto 0;
-    }
-
-    .horario-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 14px;
-      padding: 28px 24px;
-      text-align: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .horario-card .turno-title {
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: var(--orange);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .horario-card .turno {
-      margin-bottom: 10px;
-    }
-
-    .horario-card .hora {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1;
-    }
-
-    .horario-card .turno-label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.7);
-      margin-top: 3px;
-    }
-
-    .horario-card .sep {
-      width: 40px;
-      height: 1px;
-      background: rgba(255,255,255,0.2);
-      margin: 10px auto;
-    }
-
-    .horario-note {
-      text-align: center;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
-      margin-top: 24px;
-    }
+    .hor-afiche { text-align: center; }
+    .hor-afiche img { width: 100%; max-width: 320px; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+    .hor-note { text-align: center; color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-top: 30px; }
+    @media (max-width: 760px){ .hor-layout{ grid-template-columns:1fr; gap:28px; } .hor-afiche{ order:-1; } .hor-afiche img{ max-width:260px; } }
 
     /* ─── PRECIOS ─── */
-    .precios-wrap {
-      background: var(--cream);
-      padding: 54px 24px;
+    .precios { background: var(--cream); }
+    .planes { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .plan {
+      background: #fff; border-radius: var(--radius); border: 2px solid #ececec;
+      padding: 30px 24px; text-align: center; position: relative;
+      box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
     }
-
-    .precios-wrap h2 {
-      text-align: center;
-      color: var(--blue-dark);
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
+    .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .plan.featured { border-color: var(--orange); }
+    .plan .tag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg,var(--orange-dark),var(--orange)); color:#fff;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; white-space: nowrap;
     }
-
-    .planes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 820px;
-      margin: 32px auto 0;
+    .plan .pname { font-family:'Fredoka',sans-serif; font-weight:600; color: var(--blue); font-size: 1.15rem; }
+    .plan .psub { font-size: 0.85rem; color: #999; margin: 4px 0 16px; }
+    .plan .pprice { font-family:'Fredoka',sans-serif; font-weight:700; font-size: 2.2rem; color: var(--text); line-height:1; }
+    .plan .pcur { font-size: 1rem; color: var(--text-soft); }
+    .plan .punit { font-size: 0.82rem; color:#888; margin-top: 6px; }
+    .plan .pextra {
+      margin-top: 14px; font-size: 0.82rem; color: var(--blue-dark);
+      background: var(--cream); border-radius: 10px; padding: 8px 10px; font-weight: 600;
     }
+    @media (max-width: 820px){ .planes{ grid-template-columns:1fr; max-width:380px; margin:0 auto; } }
 
-    .plan-card {
-      background: #fff;
-      border-radius: 14px;
-      border: 2px solid #e0e0e0;
-      padding: 28px 20px;
-      text-align: center;
-      position: relative;
+    .hermanos {
+      max-width: 760px; margin: 34px auto 0; background: #fff;
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
     }
-
-    .plan-card.featured {
-      border-color: var(--blue);
-      box-shadow: 0 4px 24px rgba(30,77,183,0.12);
+    .hermanos .h-head {
+      background: var(--blue-dark); color:#fff; text-align:center; padding: 16px;
+      font-family:'Fredoka',sans-serif; font-weight:600; font-size: 1.1rem;
     }
+    .hermanos table { width:100%; border-collapse: collapse; }
+    .hermanos td, .hermanos th { padding: 14px 18px; text-align:left; font-size: 0.95rem; }
+    .hermanos thead th { background: var(--cream-2); color: var(--blue-dark); font-weight:700; font-size: 0.82rem; text-transform: uppercase; letter-spacing:.5px; }
+    .hermanos tbody tr { border-top: 1px solid #f0f0f0; }
+    .hermanos tbody td:first-child { font-weight: 700; color: var(--blue-dark); }
+    .hermanos .price { font-family:'Fredoka',sans-serif; font-weight:600; color: var(--text); }
 
-    .plan-card .plan-name {
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: var(--blue);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
+    .precio-afiche { text-align: center; margin-top: 40px; }
+    .precio-afiche .lbl { font-size: 0.85rem; color:#888; margin-bottom: 14px; letter-spacing:.5px; }
+    .precio-afiche img {
+      width: 100%; max-width: 380px; border-radius: var(--radius); box-shadow: var(--shadow-lg);
     }
-
-    .plan-card .plan-sub {
-      font-size: 0.78rem;
-      color: #999;
-      margin-bottom: 14px;
-    }
-
-    .plan-card .price-main {
-      font-size: 1.7rem;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .plan-card .price-unit {
-      font-size: 0.78rem;
-      color: #888;
-      margin: 4px 0 10px;
-    }
-
-    .plan-card .price-debito {
-      background: var(--green-light);
-      color: #fff;
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      display: inline-block;
-    }
-
-    .plan-card .price-debito span {
-      font-size: 0.7rem;
-      font-weight: 400;
-    }
-
-    /* matricula banner */
-    .matricula-banner {
-      background: linear-gradient(135deg, var(--orange-dark), var(--orange));
-      color: #fff;
-      border-radius: 14px;
-      padding: 24px;
-      text-align: center;
-      max-width: 820px;
-      margin: 20px auto 0;
-    }
-
-    .matricula-banner .m-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.85;
-    }
-
-    .matricula-banner .m-price {
-      font-size: 2rem;
-      font-weight: 900;
-      margin: 6px 0 4px;
-    }
-
-    .matricula-banner .m-note {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    /* ─── HERMANOS ─── */
-    .hermanos-wrap {
-      background: #fff;
-      padding: 54px 24px;
-    }
-
-    .hermanos-wrap h2 {
-      text-align: center;
-      color: var(--blue-dark);
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
-
-    .hermanos-note {
-      text-align: center;
-      color: #666;
-      font-size: 0.9rem;
-      margin-top: 6px;
-    }
-
-    .hermanos-table-wrap {
-      overflow-x: auto;
-      max-width: 820px;
-      margin: 32px auto 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    thead tr {
-      background: var(--blue-dark);
-      color: #fff;
-    }
-
-    thead th {
-      padding: 14px 16px;
-      font-weight: 700;
-      text-align: left;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    tbody tr:nth-child(even) { background: var(--cream); }
-
-    tbody td {
-      padding: 14px 16px;
-      border-bottom: 1px solid #eee;
-      color: #333;
-    }
-
-    tbody td:first-child {
-      font-weight: 700;
-      color: var(--blue-dark);
-    }
-
-    .td-price { font-weight: 700; color: var(--text); }
-    .td-debito { color: var(--green); font-weight: 600; font-size: 0.83rem; }
+    .precio-cta { text-align:center; margin-top: 36px; }
 
     /* ─── CONTACTO ─── */
-    .contacto {
-      background: linear-gradient(160deg, #1a3a80, #0f2a6e);
-      padding: 54px 24px;
-      text-align: center;
+    .contacto { background: linear-gradient(150deg, var(--blue-dark), var(--blue-deep)); color:#fff; }
+    .contacto .section-head h2 { color: var(--orange); }
+    .cont-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: stretch; }
+    .cont-info { display:flex; flex-direction: column; justify-content: center; }
+    .cont-info .row { display:flex; align-items:flex-start; gap: 14px; margin-bottom: 20px; }
+    .cont-info .row .ic { font-size: 1.5rem; line-height:1; }
+    .cont-info .row .t { color: rgba(255,255,255,0.9); line-height: 1.5; }
+    .cont-info .row .t b { color:#fff; display:block; font-family:'Fredoka',sans-serif; font-weight:500; margin-bottom: 2px; }
+    .cont-info .row a { color: var(--orange); text-decoration: none; }
+    .cont-info .row a:hover { text-decoration: underline; }
+    .cont-btns { display:flex; flex-wrap:wrap; gap: 12px; margin-top: 8px; }
+    .cont-map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); min-height: 320px; }
+    .cont-map iframe { width:100%; height:100%; min-height: 320px; border:0; display:block; }
+    @media (max-width: 760px){ .cont-grid{ grid-template-columns:1fr; } }
+
+    /* ─── CASONA ─── */
+    .casona { background:#fff; text-align:center; padding: 50px 22px; }
+    .casona img { width: 200px; max-width: 55vw; margin: 0 auto 8px; }
+    .casona p { color:#888; font-size: 0.9rem; }
+
+    /* ─── PRIVACY + FOOTER ─── */
+    .privacy { background: #f0ede6; padding: 40px 22px; text-align:center; }
+    .privacy h3 { color:#555; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+    .privacy p { color:#777; font-size: 0.85rem; line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .privacy a { color:#555; }
+    footer { background: var(--blue-deep); text-align:center; padding: 30px 20px; color: rgba(255,255,255,0.5); font-size: 0.84rem; }
+    footer .brand { font-family:'Fredoka',sans-serif; color: var(--orange); font-weight: 600; }
+    footer a { color: rgba(255,255,255,0.4); }
+
+    /* ─── FLOATING WHATSAPP ─── */
+    .fab {
+      position: fixed; right: 18px; bottom: 18px; z-index: 90;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--wa); color:#fff; display:flex; align-items:center; justify-content:center;
+      text-decoration: none; box-shadow: 0 8px 24px rgba(37,211,102,0.5);
+      transition: transform .2s;
     }
-
-    .contacto h2 {
-      color: var(--orange);
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
+    .fab svg { width: 30px; height: 30px; fill: #fff; }
+    .fab:hover { transform: scale(1.1); }
+    .fab::after {
+      content:''; position:absolute; inset:0; border-radius:50%;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.45); animation: pulse 2.2s infinite;
     }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5)} 70%{box-shadow:0 0 0 16px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 
-    .contacto-info {
-      color: rgba(255,255,255,0.8);
-      margin: 28px 0;
-      line-height: 2.5;
-      font-size: 0.97rem;
-    }
-
-    .contacto-info a {
-      color: var(--orange);
-      text-decoration: none;
-    }
-
-    .contacto-info a:hover {
-      text-decoration: underline;
-    }
-
-    .contacto-info strong {
-      color: #fff;
-    }
-
-    .btns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.97rem;
-      font-weight: 700;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-
-    .btn:hover {
-      opacity: 0.88;
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: #25D366;
-      color: #fff;
-    }
-
-    .btn-maps {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .btn-instagram {
-      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
-      color: #fff;
-    }
-
-    /* ─── MAPA + CASONA ─── */
-    .mapa-wrap {
-      background: #fff;
-    }
-
-    .casona-logo-section {
-      padding: 40px 20px 30px;
-      text-align: center;
-      background: #fff;
-    }
-
-    .casona-logo {
-      width: 200px;
-      max-width: 55vw;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    .casona-label {
-      color: #888;
-      font-size: 0.88rem;
-      letter-spacing: 0.5px;
-    }
-
-    .mapa-wrap iframe {
-      display: block;
-      width: 100%;
-      height: 340px;
-      border: none;
-    }
-
-    /* ─── PRIVACY (Meta requirement) ─── */
-    .privacy {
-      background: #f0ede6;
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    .privacy h3 {
-      color: #555;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
-    }
-
-    .privacy p {
-      color: #777;
-      font-size: 0.85rem;
-      line-height: 1.7;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: #0f1f55;
-      text-align: center;
-      padding: 28px 20px;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.82rem;
-    }
-
-    footer .brand { color: var(--orange); font-weight: 700; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 560px) {
-      .hero h1 { font-size: 1.7rem; }
-      .horario-card .hora { font-size: 1.3rem; }
-      .plan-card .price-main { font-size: 1.4rem; }
-      .matricula-banner .m-price { font-size: 1.6rem; }
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none} .hero-logo{animation:none} .fab::after{animation:none}
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <img class="hero-logo" src="logo.png" alt="Fenix Kids Academy">
-    <h1>Fenix <span>Kids</span> Academy</h1>
-    <p class="tagline">¡Divertirse, moverse y crecer de verdad!</p>
-    <div class="hero-badges">
-      <span class="badge">🧒 3 a 12 años</span>
-      <span class="badge">🌿 Al aire libre</span>
-      <span class="badge">🏅 Sábados</span>
-      <span class="badge">📍 Asunción</span>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top">
+        <img src="logo.png" alt="Fenix Kids Academy">
+        <span>Fenix <b>Kids</b></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">Nosotros</a>
+        <a href="#galeria">Galería</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20info%20sobre%20Fenix%20Kids%20Academy" target="_blank" rel="noopener"><svg class="ic-btn" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+      </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- SOBRE FENIX -->
-  <div class="about">
-    <h2>¿Qué es Fenix Kids Academy?</h2>
-    <div class="divider"></div>
-    <p>
-      Un programa de entrenamiento integral para niños de 3 a 12 años, diseñado para desarrollar
-      habilidades físicas, emocionales y mentales a través de desafíos reales y dinámicos.
-      Entrenamos mediante experiencias activas: trepar, correr, saltar, coordinar, equilibrarse
-      y moverse al aire libre — estimulando la motricidad, conciencia corporal y capacidad de resolución.
-    </p>
-    <p style="margin-top:16px;">
-      Más que ejercicio, construimos <strong>autoestima, confianza, valentía, disciplina y seguridad personal</strong>.
-      Cada sesión propone retos adaptados a la edad, donde el niño aprende a superar miedos,
-      fortalecer su carácter y confiar en sus propias capacidades.
-    </p>
-    <div class="pillars">
-      <div class="pillar"><div class="icon">💪</div><div class="label">Fuerza física</div></div>
-      <div class="pillar"><div class="icon">🧠</div><div class="label">Mente fuerte</div></div>
-      <div class="pillar"><div class="icon">❤️</div><div class="label">Confianza</div></div>
-      <div class="pillar"><div class="icon">🌿</div><div class="label">Al aire libre</div></div>
-      <div class="pillar"><div class="icon">🏆</div><div class="label">Resiliencia</div></div>
-      <div class="pillar"><div class="icon">🎯</div><div class="label">Desafíos reales</div></div>
-      <div class="pillar"><div class="icon">🦁</div><div class="label">Valentía</div></div>
-      <div class="pillar"><div class="icon">⚔️</div><div class="label">Disciplina</div></div>
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-content">
+      <img class="hero-logo" src="logo.png" alt="Fenix Kids Academy">
+      <h1>Acá comienzan sus <span class="o">mejores aventuras</span></h1>
+      <p class="tagline">Movimiento, diversión y amigos en cada desafío. Entrenamiento integral para niños de 4 a 12 años.</p>
+      <div class="hero-badges">
+        <span class="badge">🧒 4 a 12 años</span>
+        <span class="badge">🌿 Al aire libre</span>
+        <span class="badge">🏅 Todos los sábados</span>
+        <span class="badge">📍 Asunción</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-wa" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20reservar%20una%20clase%20de%20prueba%20en%20Fenix%20Kids" target="_blank" rel="noopener"><svg class="ic-btn" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Reservá tu clase de prueba</a>
+        <a class="btn btn-ghost" href="#precios">Ver precios</a>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Quiénes somos</span>
+        <h2>¿Qué es Fenix Kids?</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Un programa de entrenamiento integral para niños de 4 a 12 años, diseñado para desarrollar habilidades <strong>físicas, emocionales y mentales</strong> a través de desafíos reales y dinámicos.</p>
+          <p>Entrenamos mediante experiencias activas: trepar, correr, saltar, coordinar y equilibrarse al aire libre — estimulando la motricidad, la conciencia corporal y la capacidad de resolución.</p>
+          <p>Más que ejercicio, construimos <strong>autoestima, confianza, valentía, disciplina y seguridad personal</strong>. Cada sesión propone retos adaptados a la edad, donde el niño aprende a superar miedos y confiar en sus propias capacidades.</p>
+          <div class="about-quote">"Acá no solo vienen a entrenar, vienen a transformarse."</div>
+        </div>
+        <div class="about-mascot reveal">
+          <img src="assets/mascota.png" alt="Mascota Fenix Kids">
+        </div>
+      </div>
+
+      <div class="nota-edad reveal">
+        <div class="ne-ic">👶</div>
+        <div>
+          <h3>¿Tu hijo tiene menos de 4 años?</h3>
+          <p>¡Puede venir a probar! A los 2 y 3 años cada niño es muy distinto: algunos ya se mueven con independencia y aprenden en grupo, y otros todavía no. Por eso <strong>depende de cada niño</strong>.</p>
+          <p>Lo importante es que el niño pueda <strong>aprender y moverse por su cuenta</strong> dentro del grupo. No contamos con asistencia personalizada de un profe dedicado exclusivamente a un solo niño, así que si tu hijo necesita ese acompañamiento individual todavía no podríamos recibirlo. Vení a la clase de prueba y lo vemos juntos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section benes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Por qué Fenix</span>
+        <h2>Lo que se llevan a casa</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="benes-grid">
+        <div class="bene reveal"><div class="ic">📵</div><div class="lb">Menos pantallas</div></div>
+        <div class="bene reveal"><div class="ic">🏃</div><div class="lb">Más movimiento</div></div>
+        <div class="bene reveal"><div class="ic">💪</div><div class="lb">Más confianza</div></div>
+        <div class="bene reveal"><div class="ic">🤝</div><div class="lb">Más amigos</div></div>
+        <div class="bene reveal"><div class="ic">🌿</div><div class="lb">Más naturaleza</div></div>
+        <div class="bene reveal"><div class="ic">🎯</div><div class="lb">Mejor coordinación</div></div>
+        <div class="bene reveal"><div class="ic">⚔️</div><div class="lb">Más disciplina</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="section galeria" id="galeria">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Nuestra comunidad</span>
+        <h2>Así se vive Fenix</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gal-grid reveal">
+        <div class="gal-item big"><img src="assets/grupo-casona.jpg" alt="Grupo de niños en La Casona" loading="lazy"></div>
+        <div class="gal-item"><img src="assets/fenix-1.jpg" alt="Niños en el circuito de obstáculos" loading="lazy"></div>
+        <div class="gal-item"><img src="assets/fenix-3.jpg" alt="Niña entrenando con cuerda" loading="lazy"></div>
+        <div class="gal-item"><img src="assets/fenix-4.jpg" alt="Niños cruzando el puente" loading="lazy"></div>
+        <div class="gal-item"><img src="assets/fenix-5.jpg" alt="Niño escalando el muro" loading="lazy"></div>
+        <div class="gal-item"><img src="assets/fenix-2.jpg" alt="Niña en la red de escalada" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- HORARIOS -->
-  <div class="horarios-wrap">
-    <h2>Horarios</h2>
-    <div class="divider"></div>
-
-    <div class="horarios-grid">
-
-      <div class="horario-card">
-        <div class="turno-title">☀️ Sábados de Mañana</div>
-        <div class="turno">
-          <div class="hora">9:30</div>
-          <div class="turno-label">Primer turno</div>
+  <section class="section horarios" id="horarios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Horario invierno</span>
+        <h2>Horarios</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="hor-layout">
+        <div class="hor-cards reveal">
+          <div class="hor-day">Todos los sábados</div>
+          <div class="hor-card">
+            <div class="clock">🕚</div>
+            <div><div class="hora">11:00</div><div class="lbl">Turno mañana</div></div>
+          </div>
+          <div class="hor-card">
+            <div class="clock">🕞</div>
+            <div><div class="hora">15:30</div><div class="lbl">Turno tarde</div></div>
+          </div>
         </div>
-        <div class="sep"></div>
-        <div class="turno">
-          <div class="hora">11:00</div>
-          <div class="turno-label">Segundo turno</div>
+        <div class="hor-afiche reveal">
+          <img src="assets/afiche-horario.jpg" alt="Afiche horario invierno Fenix Kids">
+        </div>
+      </div>
+      <p class="hor-note">📍 La Casona Lafuente · Maestras Paraguayas 2056, Asunción · ¡Cupos limitados!</p>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section class="section precios" id="precios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Planes 2026</span>
+        <h2>Precios</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="planes">
+        <div class="plan reveal">
+          <div class="pname">🎈 Clase de prueba</div>
+          <div class="psub">1 sábado</div>
+          <div class="pprice">100.000 <span class="pcur">Gs</span></div>
+          <div class="punit">por niño</div>
+          <div class="pextra">+50.000 Gs por cada hijo extra</div>
+        </div>
+        <div class="plan featured reveal">
+          <div class="tag">★ Más elegido</div>
+          <div class="pname">🗓️ Plan mensual</div>
+          <div class="psub">4 sábados</div>
+          <div class="pprice">240.000 <span class="pcur">Gs</span></div>
+          <div class="punit">por mes · por niño</div>
+          <div class="pextra">+100.000 Gs por cada hijo extra</div>
+        </div>
+        <div class="plan reveal">
+          <div class="pname">🎽 Matrícula anual</div>
+          <div class="psub">Pago único al año</div>
+          <div class="pprice">100.000 <span class="pcur">Gs</span></div>
+          <div class="punit">por niño</div>
         </div>
       </div>
 
-      <div class="horario-card">
-        <div class="turno-title">🌤️ Sábados de Tarde</div>
-        <div class="turno">
-          <div class="hora">16:00</div>
-          <div class="turno-label">Primer turno</div>
-        </div>
-        <div class="sep"></div>
-        <div class="turno">
-          <div class="hora">17:30</div>
-          <div class="turno-label">Segundo turno</div>
-        </div>
+      <div class="hermanos reveal">
+        <div class="h-head">🤝 Plan Hermanos — ejemplos mensuales</div>
+        <table>
+          <thead>
+            <tr><th>Familia</th><th>Cuota mensual</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 hijo</td><td class="price">240.000 Gs</td></tr>
+            <tr><td>2 hermanos</td><td class="price">340.000 Gs</td></tr>
+            <tr><td>3 hermanos</td><td class="price">440.000 Gs</td></tr>
+          </tbody>
+        </table>
       </div>
 
-    </div>
-    <p class="horario-note">📍 Parque Fenix Kids · La Casona Lafuente · Maestras Paraguayas 2056</p>
-  </div>
-
-  <!-- PLANES / PRECIOS -->
-  <div class="precios-wrap">
-    <h2>Planes</h2>
-    <div class="divider"></div>
-
-    <div class="planes-grid">
-
-      <div class="plan-card featured">
-        <div class="plan-name">🗓 Plan Quincenal</div>
-        <div class="plan-sub">2 sábados al mes</div>
-        <div class="price-main">250.000 Gs</div>
-        <div class="price-unit">/ mes</div>
-        <div class="price-debito">💳 190.000 Gs <span>con débito automático</span></div>
+      <div class="precio-afiche reveal">
+        <div class="lbl">— Afiche oficial de precios —</div>
+        <img src="assets/afiche-precios.jpg" alt="Afiche de precios Fenix Kids 2026">
       </div>
 
-      <div class="plan-card">
-        <div class="plan-name">📅 Plan Semanal</div>
-        <div class="plan-sub">1 vez por semana</div>
-        <div class="price-main">350.000 Gs</div>
-        <div class="price-unit">/ mes</div>
-        <div class="price-debito">💳 290.000 Gs <span>con débito automático</span></div>
+      <div class="precio-cta reveal">
+        <a class="btn btn-orange" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20Fenix%20Kids" target="_blank" rel="noopener"><svg class="ic-btn" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Reservá ahora tu lugar</a>
       </div>
-
     </div>
-
-    <div class="matricula-banner">
-      <div class="m-label">🎽 Matrícula</div>
-      <div class="m-price">200.000 Gs</div>
-      <div class="m-note">Por niño · <strong>¡Incluye camiseta!</strong></div>
-    </div>
-  </div>
-
-  <!-- PLAN HERMANOS -->
-  <div class="hermanos-wrap">
-    <h2>🤝 Plan Hermanos</h2>
-    <p class="hermanos-note">¡Descuento especial para familias!</p>
-    <div class="divider"></div>
-
-    <div class="hermanos-table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Niño</th>
-            <th>Plan Quincenal</th>
-            <th>Débito automático</th>
-            <th>Plan Semanal</th>
-            <th>Débito automático</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1er hijo</td>
-            <td class="td-price">250.000 Gs</td>
-            <td class="td-debito">190.000 Gs</td>
-            <td class="td-price">350.000 Gs</td>
-            <td class="td-debito">290.000 Gs</td>
-          </tr>
-          <tr>
-            <td>2do hijo</td>
-            <td class="td-price">150.000 Gs</td>
-            <td class="td-debito">100.000 Gs</td>
-            <td class="td-price">200.000 Gs</td>
-            <td class="td-debito">150.000 Gs</td>
-          </tr>
-          <tr>
-            <td>3er hijo</td>
-            <td class="td-price">150.000 Gs</td>
-            <td class="td-debito">100.000 Gs</td>
-            <td class="td-price">200.000 Gs</td>
-            <td class="td-debito">150.000 Gs</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="text-align:center; color:#888; font-size:0.85rem; margin-top:16px;">
-      * Matrícula: 200.000 Gs por niño · Incluye camiseta
-    </p>
-  </div>
+  </section>
 
   <!-- CONTACTO -->
-  <div class="contacto">
-    <h2>Contacto</h2>
-    <div class="divider"></div>
-
-    <div class="contacto-info">
-      <p>📍 <strong>Parque Fenix Kids · La Casona Lafuente</strong><br>Maestras Paraguayas 2056, Asunción</p>
-      <p>📲 <a href="tel:+595971669832">0971 669 832</a></p>
-      <p>📸 <a href="https://www.instagram.com/fenixkidsacademy/" target="_blank" rel="noopener">@fenixkidsacademy</a></p>
+  <section class="section contacto" id="contacto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Estamos para ayudarte</span>
+        <h2>Contacto</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="cont-grid">
+        <div class="cont-info reveal">
+          <div class="row"><div class="ic">📍</div><div class="t"><b>La Casona Lafuente</b>Maestras Paraguayas 2056, Asunción</div></div>
+          <div class="row"><div class="ic">📲</div><div class="t"><b>Teléfono / WhatsApp</b><a href="https://wa.me/595971669832" target="_blank" rel="noopener">0971 669 832</a></div></div>
+          <div class="row"><div class="ic">📸</div><div class="t"><b>Instagram</b><a href="https://www.instagram.com/fenixkidsacademy/" target="_blank" rel="noopener">@fenixkidsacademy</a></div></div>
+          <div class="socials" style="margin-bottom:18px;">
+            <a class="soc wa" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Fenix%20Kids%20Academy" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+            <a class="soc ig" href="https://www.instagram.com/fenixkidsacademy/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a class="soc tt" href="https://www.tiktok.com/@fenixkidsacademy" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            <a class="soc fb" href="https://www.facebook.com/fenixkidsacademy" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a class="soc yt" href="https://www.youtube.com/@fenixkidsacademy" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+          <div class="cont-btns">
+            <a class="btn btn-ghost" href="https://maps.app.goo.gl/nZT5zGA7N8B76xmD6" target="_blank" rel="noopener"><svg class="ic-btn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>Cómo llegar</a>
+          </div>
+        </div>
+        <div class="cont-map reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Maestras+Paraguayas+2056,Asuncion,Paraguay&output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Fenix Kids Academy"></iframe>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="btns">
-      <a class="btn btn-whatsapp"
-         href="https://wa.me/595971669832?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Fenix%20Kids%20Academy"
-         target="_blank" rel="noopener">
-        💬 WhatsApp
-      </a>
-      <a class="btn btn-instagram"
-         href="https://www.instagram.com/fenixkidsacademy/"
-         target="_blank" rel="noopener">
-        📸 Instagram
-      </a>
-      <a class="btn btn-maps"
-         href="https://maps.app.goo.gl/nZT5zGA7N8B76xmD6"
-         target="_blank" rel="noopener">
-        📍 Cómo llegar
-      </a>
-    </div>
+  <!-- CASONA -->
+  <div class="casona">
+    <img src="casona.png" alt="La Casona Lafuente">
+    <p>Maestras Paraguayas 2056 · Asunción</p>
   </div>
 
-  <!-- CASONA + MAPA -->
-  <div class="mapa-wrap">
-    <div class="casona-logo-section">
-      <img src="casona.png" alt="La Casona Lafuente" class="casona-logo">
-      <p class="casona-label">Maestras Paraguayas 2056 · Asunción</p>
-    </div>
-    <iframe
-      src="https://www.google.com/maps?q=Maestras+Paraguayas+2056,Asuncion,Paraguay&output=embed"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Ubicación Fenix Kids Academy">
-    </iframe>
-  </div>
-
-  <!-- POLÍTICA DE PRIVACIDAD (requerido Meta) -->
+  <!-- PRIVACY -->
   <div class="privacy" id="privacidad">
     <h3>Política de Privacidad</h3>
     <p>
@@ -756,16 +642,45 @@
       en nuestros programas. Los datos de contacto (nombre y número de teléfono) se utilizan
       exclusivamente para brindar información sobre nuestros servicios, horarios y planes.
       No compartimos datos personales con terceros. Para consultas sobre tus datos,
-      escribinos a <a href="https://wa.me/595971669832" style="color:#555;">0971 669 832</a>.
+      escribinos a <a href="https://wa.me/595971669832">0971 669 832</a>.
     </p>
   </div>
 
   <!-- FOOTER -->
   <footer>
+    <div class="socials" style="justify-content:center; margin-bottom:22px;">
+      <a class="soc wa" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20info%20sobre%20Fenix%20Kids%20Academy" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      <a class="soc ig" href="https://www.instagram.com/fenixkidsacademy/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a class="soc tt" href="https://www.tiktok.com/@fenixkidsacademy" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a class="soc fb" href="https://www.facebook.com/fenixkidsacademy" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a class="soc yt" href="https://www.youtube.com/@fenixkidsacademy" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    </div>
     <p><span class="brand">Fenix Kids Academy</span> · Asunción, Paraguay</p>
     <p style="margin-top:6px;">Niños más fuertes, seguros y preparados para la vida 🦅</p>
-    <p style="margin-top:6px;"><a href="#privacidad" style="color:rgba(255,255,255,0.3);">Política de Privacidad</a></p>
+    <p style="margin-top:6px;"><a href="#privacidad">Política de Privacidad</a></p>
   </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a class="fab" href="https://wa.me/595971669832?text=Hola%2C%20quiero%20info%20sobre%20Fenix%20Kids%20Academy" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+  <script>
+    // Menú móvil
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.classList.remove('open'); links.classList.remove('open');
+    }));
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 
 </body>
 </html>
