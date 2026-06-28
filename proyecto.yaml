@@ -1,0 +1,21 @@
+# proyecto.yaml — ficha de este repo para el cerebro central (lafuente-crm).
+# Fuente de verdad del CONTEXTO ESTABLE. Lo vivo (commits, fechas) lo calcula
+# el agregador desde git. Editá a mano lo que el draft no acertó.
+nombre: fenixkidsacademy-web
+alias: Web Fenix Kids
+que_es: Sitio web de Fenix Kids Academy.
+tipo: web
+estado: produccion
+stack:
+- html
+- css
+- javascript
+deploy:
+  plataforma: cloudflare-pages
+  url: ''
+conexiones:
+- destino: pagos-bancard
+  tipo: llama-api
+  detalle: cobros vía Bancard vPOS
+fuente_contexto: ''
+notas: ''
