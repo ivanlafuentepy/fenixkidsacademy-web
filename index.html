@@ -185,6 +185,12 @@
     .btn-wa:hover { box-shadow: 0 12px 28px rgba(37,211,102,0.5); }
     .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
     .btn-orange { background: linear-gradient(135deg, var(--orange-dark), var(--orange)); color: #fff; box-shadow: 0 8px 22px rgba(245,166,35,0.35); }
+    /* Pago directo con tarjeta (pasarela Bancard) — azul de marca, distinto del
+       naranja/verde de WhatsApp para que se lea "pago online". */
+    .btn-azul { background: linear-gradient(135deg, var(--blue-dark), var(--blue)); color: #fff; box-shadow: 0 8px 22px rgba(30,77,183,0.3); }
+    .plan .btn-azul { margin-top: 14px; padding: 10px 18px; font-size: 0.85rem; }
+    .hermanos .pay-link { margin-left: 10px; font-size: 0.8rem; font-weight: 700; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .hermanos .pay-link:hover { text-decoration: underline; }
     .btn-ig { background: linear-gradient(135deg,#833ab4 0%,#fd1d1d 50%,#fcb045 100%); color:#fff; }
     .ic-btn { width: 1.15em; height: 1.15em; fill: currentColor; vertical-align: -0.18em; margin-right: 4px; }
 
@@ -560,12 +566,16 @@
           <div class="pprice">240.000 <span class="pcur">Gs</span></div>
           <div class="punit">por mes · por niño</div>
           <div class="pextra">+100.000 Gs por cada hijo extra</div>
+          <a class="btn btn-azul" target="_blank" rel="noopener"
+             href="https://pago.ivanlafuente.com/pagar/fenix?monto=240000&amp;sig=2567a029225be754&amp;concepto=Mensualidad+%281+hijo%29">💳 Pagar con tarjeta</a>
         </div>
         <div class="plan reveal">
           <div class="pname">🎽 Matrícula anual</div>
           <div class="psub">Pago único al año</div>
           <div class="pprice">100.000 <span class="pcur">Gs</span></div>
           <div class="punit">por niño</div>
+          <a class="btn btn-azul" target="_blank" rel="noopener"
+             href="https://pago.ivanlafuente.com/pagar/fenix?monto=100000&amp;sig=1f23e6fb847d3d15&amp;concepto=Matr%C3%ADcula+anual">💳 Pagar con tarjeta</a>
         </div>
       </div>
 
@@ -576,9 +586,15 @@
             <tr><th>Familia</th><th>Cuota mensual</th></tr>
           </thead>
           <tbody>
-            <tr><td>1 hijo</td><td class="price">240.000 Gs</td></tr>
-            <tr><td>2 hermanos</td><td class="price">340.000 Gs</td></tr>
-            <tr><td>3 hermanos</td><td class="price">440.000 Gs</td></tr>
+            <tr><td>1 hijo</td><td class="price">240.000 Gs
+              <a class="pay-link" target="_blank" rel="noopener"
+                 href="https://pago.ivanlafuente.com/pagar/fenix?monto=240000&amp;sig=2567a029225be754&amp;concepto=Mensualidad+%281+hijo%29">💳 pagar</a></td></tr>
+            <tr><td>2 hermanos</td><td class="price">340.000 Gs
+              <a class="pay-link" target="_blank" rel="noopener"
+                 href="https://pago.ivanlafuente.com/pagar/fenix?monto=340000&amp;sig=4af9c86067f0f3c0&amp;concepto=Mensualidad+%282+hermanos%29">💳 pagar</a></td></tr>
+            <tr><td>3 hermanos</td><td class="price">440.000 Gs
+              <a class="pay-link" target="_blank" rel="noopener"
+                 href="https://pago.ivanlafuente.com/pagar/fenix?monto=440000&amp;sig=b9302249a71c71f3&amp;concepto=Mensualidad+%283+hermanos%29">💳 pagar</a></td></tr>
           </tbody>
         </table>
       </div>
