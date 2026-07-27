@@ -116,8 +116,8 @@ def main():
 
     heic_sin_soporte = []
     fuentes = []
-    for p in sorted(args.carpeta_origen.iterdir()):
-        if p.suffix.lower() not in EXTENSIONES:
+    for p in sorted(args.carpeta_origen.rglob("*")):
+        if not p.is_file() or p.suffix.lower() not in EXTENSIONES:
             continue
         if p.suffix.lower() == ".heic" and pillow_heif is None:
             heic_sin_soporte.append(p.name)

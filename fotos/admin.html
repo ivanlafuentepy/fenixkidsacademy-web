@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin fotos (local) | Fenix Kids Academy</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo.png">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-dark:  #163a8a;
+  --orange:     #f5a623;
+  --cream:      #fdf6e3;
+  --text:       #1a1a1a;
+  --text-soft:  #4a4a4a;
+  --radius:     14px;
+  --red:        #c8342a;
+}
+
+body { font-family: system-ui, sans-serif; background: var(--cream); color: var(--text); padding-bottom: 160px; }
+
+header { background: var(--blue-dark); padding: 16px 22px; color: #fff; }
+header h1 { font-size: 1.1rem; }
+header p { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 24px 22px; }
+
+.fecha-section { margin-bottom: 34px; }
+.fecha-titulo {
+  font-size: 1rem; color: var(--blue-dark); text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--orange); display: inline-block; padding-bottom: 4px; margin-bottom: 14px;
+}
+
+.gal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.gal-item { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; aspect-ratio: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gal-item .marca {
+  position: absolute; inset: 0; background: rgba(200,52,42,0.55);
+  display: none; align-items: center; justify-content: center; font-size: 2.2rem; color: #fff;
+}
+.gal-item.marcada .marca { display: flex; }
+.gal-item.marcada img { filter: brightness(0.6); }
+.gal-item .nombre { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.55); color: #fff; font-size: 10px; padding: 2px 4px; }
+
+.barra {
+  position: fixed; bottom: 0; left: 0; right: 0; background: #111; color: #fff;
+  padding: 14px 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3); z-index: 50;
+}
+.barra strong { color: var(--orange); }
+.barra input[type=text] { flex: 1; min-width: 220px; padding: 8px 10px; border-radius: 8px; border: 1px solid #444; background: #1a1a1a; color: #fff; font-size: 12px; }
+.barra button { background: var(--red); color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.barra button:hover { background: #a82921; }
+.barra button:disabled { background: #555; cursor: not-allowed; }
+.barra .limpiar { background: #333; }
+.barra .limpiar:hover { background: #444; }
+
+.comando { max-width: 1200px; margin: 0 auto 20px; padding: 0 22px; }
+.comando textarea {
+  width: 100%; min-height: 70px; font-family: monospace; font-size: 12px; padding: 12px;
+  border-radius: 10px; border: 1px solid #ccc; background: #fff; resize: vertical;
+}
+.comando .copiar { margin-top: 8px; background: var(--blue-dark); color: #fff; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+.comando .copiar:hover { background: #10306f; }
+.comando p { font-size: 12px; color: var(--text-soft); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Admin de fotos (uso local, no es la página pública)</h1>
+  <p>Tildá las fotos que querés borrar → generá el comando → pegalo en la terminal, en la carpeta fenixkidsacademy-web → después commiteá y pusheá vos.</p>
+</header>
+
+<div class="wrap" id="galGrid"></div>
+
+<div class="comando" id="comandoBox" style="display:none;">
+  <textarea id="comandoTexto" readonly></textarea>
+  <button class="copiar" onclick="copiarComando()">Copiar comando</button>
+  <p>Después de correrlo: <code>git add -A &amp;&amp; git commit -m "fix(fotos): borrar seleccion" &amp;&amp; git push</code></p>
+</div>
+
+<div class="barra">
+  <span><strong id="contador">0</strong> fotos seleccionadas</span>
+  <input type="text" id="carpetaOriginal" value="C:\Users\IVAN LAFUENTE\Desktop\FENIX FOTOS" title="Carpeta donde buscar y borrar tambien los originales">
+  <button class="limpiar" onclick="limpiarSeleccion()">Limpiar selección</button>
+  <button onclick="generarComando()" id="btnGenerar" disabled>Generar comando de borrado</button>
+</div>
+
+<script src="assets/photos.js"></script>
+<script>
+const seleccionadas = new Set();
+
+function render() {
+  document.getElementById('galGrid').innerHTML = photoGroups.map(grupo => {
+    const items = grupo.fotos.map(f =>
+      `<div class="gal-item" data-foto="${f}" onclick="toggle('${f}', this)">
+        <img src="assets/thumb/${f}" loading="lazy" alt="">
+        <span class="nombre">${f}</span>
+        <span class="marca">✓</span>
+      </div>`
+    ).join('');
+    return `<section class="fecha-section"><h2 class="fecha-titulo">${grupo.etiqueta} (${grupo.fotos.length})</h2><div class="gal-grid">${items}</div></section>`;
+  }).join('');
+}
+render();
+
+function toggle(foto, el) {
+  if (seleccionadas.has(foto)) {
+    seleccionadas.delete(foto);
+    el.classList.remove('marcada');
+  } else {
+    seleccionadas.add(foto);
+    el.classList.add('marcada');
+  }
+  document.getElementById('contador').textContent = seleccionadas.size;
+  document.getElementById('btnGenerar').disabled = seleccionadas.size === 0;
+  document.getElementById('comandoBox').style.display = 'none';
+}
+
+function limpiarSeleccion() {
+  seleccionadas.clear();
+  document.querySelectorAll('.gal-item.marcada').forEach(el => el.classList.remove('marcada'));
+  document.getElementById('contador').textContent = 0;
+  document.getElementById('btnGenerar').disabled = true;
+  document.getElementById('comandoBox').style.display = 'none';
+}
+
+function generarComando() {
+  const carpeta = document.getElementById('carpetaOriginal').value.trim();
+  const nombres = [...seleccionadas].join(' ');
+  let cmd = `python scripts/borrar_fotos.py ${nombres}`;
+  if (carpeta) cmd += ` --tambien-borrar-original "${carpeta}"`;
+  document.getElementById('comandoTexto').value = cmd;
+  document.getElementById('comandoBox').style.display = 'block';
+}
+
+function copiarComando() {
+  const ta = document.getElementById('comandoTexto');
+  ta.select();
+  navigator.clipboard?.writeText(ta.value).catch(() => document.execCommand('copy'));
+}
+</script>
+</body>
+</html>
