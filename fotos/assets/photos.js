@@ -273,11 +273,6 @@ const photoGroups = [
       'foto-0045.jpg',
       'foto-0046.jpg'
     ] },
-  { etiqueta: 'Jueves 12 de marzo de 2026', fotos: [
-      'foto-0041.jpg',
-      'foto-0042.jpg',
-      'foto-0043.jpg'
-    ] },
   { etiqueta: 'Sábado 7 de marzo de 2026', fotos: [
       'foto-0035.jpg',
       'foto-0036.jpg',
