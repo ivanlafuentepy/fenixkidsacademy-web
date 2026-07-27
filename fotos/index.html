@@ -106,6 +106,7 @@ header a.volver:hover { color: #fff; }
 
 <script src="assets/photos.js"></script>
 <script>
+const ASSETS = 'https://cdn.fenixkidsacademy.com';
 const selectFecha = document.getElementById('selectFecha');
 photoGroups.forEach((grupo, i) => {
   const opt = document.createElement('option');
@@ -122,7 +123,7 @@ function render() {
   document.getElementById('galGrid').innerHTML = grupos.map(grupo => {
     const items = grupo.fotos.map(f => {
       const i = photos.push(f) - 1;
-      return `<div class="gal-item"><img src="assets/thumb/${f}" loading="lazy" alt="Foto de entrenamiento" onclick="openViewer(${i})"></div>`;
+      return `<div class="gal-item"><img src="${ASSETS}/thumb/${f}" loading="lazy" alt="Foto de entrenamiento" onclick="openViewer(${i})"></div>`;
     }).join('');
     return `<section class="fecha-section"><h2 class="fecha-titulo">${grupo.etiqueta}</h2><div class="gal-grid">${items}</div></section>`;
   }).join('');
@@ -136,7 +137,7 @@ function openViewer(i) {
   document.getElementById('frameModal').classList.add('open');
 }
 function showModal() {
-  document.getElementById('modalImg').src = `assets/full/${photos[modalIdx]}`;
+  document.getElementById('modalImg').src = `${ASSETS}/full/${photos[modalIdx]}`;
   document.getElementById('modalInfo').textContent = `${modalIdx + 1} / ${photos.length}`;
 }
 function navModal(dir) {

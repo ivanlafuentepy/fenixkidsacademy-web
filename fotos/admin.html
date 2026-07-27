@@ -91,13 +91,14 @@ header p { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
 
 <script src="assets/photos.js"></script>
 <script>
+const ASSETS = 'https://cdn.fenixkidsacademy.com';
 const seleccionadas = new Set();
 
 function render() {
   document.getElementById('galGrid').innerHTML = photoGroups.map(grupo => {
     const items = grupo.fotos.map(f =>
       `<div class="gal-item" data-foto="${f}" onclick="toggle('${f}', this)">
-        <img src="assets/thumb/${f}" loading="lazy" alt="">
+        <img src="${ASSETS}/thumb/${f}" loading="lazy" alt="">
         <span class="nombre">${f}</span>
         <span class="marca">✓</span>
       </div>`
