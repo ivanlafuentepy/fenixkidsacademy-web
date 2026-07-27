@@ -86,7 +86,13 @@ def main():
         destino_dir = destino_base / nombre_carpeta
         destino = destino_dir / p.name
         if destino.exists():
-            print(f"  Aviso: ya existe {destino}, no se mueve {p.name}")
+            if destino.stat().st_size == p.stat().st_size:
+                # duplicado exacto (mismo nombre y tamano): limpiar la bandeja
+                if not args.simular:
+                    p.unlink()
+                print(f"  Duplicado exacto eliminado de la bandeja: {p.name}")
+            else:
+                print(f"  Aviso: ya existe {destino} con otro tamano, no se mueve {p.name}")
             continue
 
         if args.simular:
