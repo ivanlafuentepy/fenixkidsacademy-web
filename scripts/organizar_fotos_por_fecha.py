@@ -13,10 +13,14 @@ import optimizar_fotos as of
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("carpeta", type=Path, help="Carpeta con fotos sueltas para organizar (no recursivo)")
+    ap.add_argument("--destino", type=Path, default=None,
+                     help="Carpeta base donde crear/fusionar las subcarpetas por fecha (default: la misma carpeta)")
     args = ap.parse_args()
 
     if not args.carpeta.is_dir():
         sys.exit(f"No existe: {args.carpeta}")
+
+    destino_base = args.destino or args.carpeta
 
     por_carpeta = {}
     movidas = 0
@@ -30,8 +34,8 @@ def main():
         else:
             nombre_carpeta = "Sin fecha"
 
-        destino_dir = args.carpeta / nombre_carpeta
-        destino_dir.mkdir(exist_ok=True)
+        destino_dir = destino_base / nombre_carpeta
+        destino_dir.mkdir(parents=True, exist_ok=True)
         destino = destino_dir / p.name
         if destino.exists():
             print(f"  Aviso: ya existe {destino}, no se mueve {p.name}")
