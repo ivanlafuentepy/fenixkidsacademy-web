@@ -11,12 +11,19 @@
 # Todo es incremental y re-ejecutable: si no hay nada nuevo, no comitea ni avisa.
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
+
+# El CLOUDFLARE_API_TOKEN viejo del entorno de Windows pisa el login OAuth de
+# wrangler y da "Authentication error" — se saca antes de cualquier subprocess.
+os.environ.pop("CLOUDFLARE_API_TOKEN", None)
+
+NPX = shutil.which("npx") or "npx"
 
 INBOX = Path(r"C:\Users\IVAN LAFUENTE\Desktop\FENIX FOTOS\FOTOS")
 BASE_FOTOS = Path(r"C:\Users\IVAN LAFUENTE\Desktop\FENIX FOTOS")
@@ -89,7 +96,21 @@ def main():
         print("\nNo hay fotos nuevas para publicar. Nada que hacer.")
         return
 
-    # Paso 3 — commit + push (deploy automatico de Cloudflare Pages)
+    # Paso 2b — subir las fotos nuevas a R2 (las imagenes NO van a git, solo el CDN)
+    archivos_nuevos = re.findall(r"-> (foto-\d+\.jpg)", salida)
+    print(f"\nSubiendo {len(archivos_nuevos)} fotos nuevas a R2 (thumb + full)...")
+    for n in archivos_nuevos:
+        for carpeta in ("thumb", "full"):
+            # --remote es OBLIGATORIO: sin eso wrangler escribe en un storage local
+            # de simulacion y las fotos nunca llegan al bucket real
+            correr([NPX, "wrangler", "r2", "object", "put", f"fenix-fotos/{carpeta}/{n}",
+                    "--file", str(REPO_WEB / "fotos/assets" / carpeta / n),
+                    "--content-type", "image/jpeg",
+                    "--cache-control", "public, max-age=31536000, immutable",
+                    "--remote"], cwd=REPO_WEB)
+
+    # Paso 3 — commit + push (deploy automatico de Cloudflare Pages; solo texto,
+    # thumb/ y full/ estan en .gitignore)
     correr(["git", "add", "fotos/assets"], cwd=REPO_WEB)
     correr(["git", "commit", "-m", f"feat(fotos): sumar {nuevas} fotos nuevas"], cwd=REPO_WEB)
     correr(["git", "push"], cwd=REPO_WEB)

@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
-# scripts/borrar_fotos.py — borra fotos ya publicadas (thumb+full+manifest) y regenera photos.js
+# scripts/borrar_fotos.py — borra fotos ya publicadas (thumb+full+manifest+R2) y regenera photos.js
 #
 # Recibe los nombres tal como aparecen en fotos/assets/ (ej: foto-0041.jpg). Pensado para
 # usarse con el comando que genera fotos/admin.html al tildar fotos para borrar.
 import argparse
+import os
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import optimizar_fotos as of
+
+# El CLOUDFLARE_API_TOKEN viejo del entorno pisa el OAuth de wrangler
+os.environ.pop("CLOUDFLARE_API_TOKEN", None)
+NPX = shutil.which("npx") or "npx"
+
+
+def _borrar_de_r2(nombre: str):
+    """Borra thumb y full del bucket (si no, la foto sigue accesible por URL directa)."""
+    for carpeta in ("thumb", "full"):
+        r = subprocess.run([NPX, "wrangler", "r2", "object", "delete", f"fenix-fotos/{carpeta}/{nombre}", "--remote"],
+                           capture_output=True, text=True)
+        estado = "ok" if r.returncode == 0 else f"FALLO ({(r.stderr or '').strip()[:80]})"
+        print(f"  R2 {carpeta}/{nombre}: {estado}")
 
 
 def main():
@@ -48,6 +64,7 @@ def main():
 
     for b in borradas:
         print(f"  borrada: {b['salida']} (origen: {b['origen']})")
+        _borrar_de_r2(b["salida"])
 
     if args.tambien_borrar_original:
         carpeta = args.tambien_borrar_original

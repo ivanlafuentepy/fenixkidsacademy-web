@@ -1,0 +1,10 @@
+# Contactos personales — NUNCA subir
+contactos/
+
+# Imagenes del catalogo de fotos: viven en R2 (cdn.fenixkidsacademy.com),
+# las copias locales son cache de trabajo. Solo photos.js y manifest.json van a git.
+fotos/assets/thumb/
+fotos/assets/full/
+
+# Storage local de simulacion de wrangler
+.wrangler/
