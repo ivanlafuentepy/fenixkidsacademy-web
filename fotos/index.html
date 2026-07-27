@@ -41,7 +41,14 @@ header a.volver:hover { color: #fff; }
 
 .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 22px 60px; }
 .wrap h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--blue-dark); text-align: center; margin-bottom: 8px; }
-.wrap p.sub { text-align: center; color: var(--text-soft); margin-bottom: 36px; }
+.wrap p.sub { text-align: center; color: var(--text-soft); margin-bottom: 24px; }
+
+.filtro-fecha { display: flex; justify-content: center; margin-bottom: 32px; }
+.filtro-fecha select {
+  font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text);
+  padding: 10px 16px; border-radius: 10px; border: 2px solid var(--blue-dark);
+  background: #fff; cursor: pointer; max-width: 90vw;
+}
 
 .fecha-section { margin-bottom: 40px; }
 .fecha-titulo {
@@ -81,6 +88,11 @@ header a.volver:hover { color: #fff; }
 <div class="wrap">
   <h1>Fotos de los entrenamientos</h1>
   <p class="sub">Momentos de nuestros sábados en La Casona Lafuente</p>
+  <div class="filtro-fecha">
+    <select id="selectFecha" onchange="render()">
+      <option value="">Todas las fechas</option>
+    </select>
+  </div>
   <div id="galGrid"></div>
 </div>
 
@@ -94,10 +106,20 @@ header a.volver:hover { color: #fff; }
 
 <script src="assets/photos.js"></script>
 <script>
+const selectFecha = document.getElementById('selectFecha');
+photoGroups.forEach((grupo, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = `${grupo.etiqueta} (${grupo.fotos.length})`;
+  selectFecha.appendChild(opt);
+});
+
 let photos = [];
 function render() {
   photos = [];
-  document.getElementById('galGrid').innerHTML = photoGroups.map(grupo => {
+  const seleccion = selectFecha.value;
+  const grupos = seleccion === '' ? photoGroups : [photoGroups[Number(seleccion)]];
+  document.getElementById('galGrid').innerHTML = grupos.map(grupo => {
     const items = grupo.fotos.map(f => {
       const i = photos.push(f) - 1;
       return `<div class="gal-item"><img src="assets/thumb/${f}" loading="lazy" alt="Foto de entrenamiento" onclick="openViewer(${i})"></div>`;
