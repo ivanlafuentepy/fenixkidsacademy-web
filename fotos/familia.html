@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Fotos de tu familia | Fenix Kids Academy</title>
+<link rel="icon" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue:       #1e4db7;
+  --blue-dark:  #163a8a;
+  --orange:     #f5a623;
+  --orange-dark:#c8821a;
+  --cream:      #fdf6e3;
+  --text:       #1a1a1a;
+  --text-soft:  #4a4a4a;
+  --radius:     18px;
+  --shadow:     0 10px 30px rgba(15,42,110,0.12);
+}
+
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--text); }
+h1 { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; }
+
+header {
+  background: var(--blue-dark);
+  padding: 18px 22px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+header .brand { display: flex; align-items: center; gap: 10px; }
+header .brand img { width: 38px; height: 38px; object-fit: contain; }
+header .brand span { font-family: 'Fredoka', sans-serif; font-weight: 600; color: #fff; font-size: 1.05rem; }
+header .brand span b { color: var(--orange); }
+header a.volver { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+header a.volver:hover { color: #fff; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 40px 22px 60px; }
+.wrap h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--blue-dark); text-align: center; margin-bottom: 8px; }
+.wrap p.sub { text-align: center; color: var(--text-soft); margin-bottom: 24px; }
+
+.aviso { max-width: 520px; margin: 60px auto; text-align: center; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 28px; }
+.aviso h2 { font-family: 'Fredoka', sans-serif; color: var(--blue-dark); margin-bottom: 12px; }
+.aviso p { color: var(--text-soft); line-height: 1.5; }
+
+.chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+.chip {
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  padding: 8px 18px; border-radius: 999px; border: 2px solid var(--blue-dark);
+  background: #fff; color: var(--blue-dark); cursor: pointer;
+}
+.chip.activo { background: var(--blue-dark); color: #fff; }
+
+.fecha-section { margin-bottom: 40px; }
+.fecha-titulo {
+  font-size: 1.15rem; color: var(--blue-dark); text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--orange); display: inline-block; padding-bottom: 4px; margin-bottom: 16px;
+}
+
+.gal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); grid-auto-rows: 200px; gap: 14px; }
+.gal-item { overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); cursor: pointer; }
+.gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.gal-item:hover img { transform: scale(1.05); }
+
+@media (max-width: 760px) {
+  .gal-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 160px; gap: 10px; }
+}
+
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 200; justify-content: center; align-items: center; flex-direction: column; }
+.modal.open { display: flex; }
+.modal img { max-width: 90%; max-height: 82%; border-radius: 8px; }
+.modal-info { color: #ddd; font-size: 14px; margin-top: 14px; }
+.modal-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 32px; cursor: pointer; line-height: 1; }
+.modal-nav { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-size: 40px; cursor: pointer; user-select: none; padding: 20px; }
+.modal-prev { left: 10px; }
+.modal-next { right: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="../">
+    <img src="../logo.png" alt="Fenix Kids Academy">
+    <span>Fenix <b>Kids</b></span>
+  </a>
+  <a class="volver" href="../">← Volver al inicio</a>
+</header>
+
+<div class="wrap" id="contenido">
+  <div class="aviso"><h2>Cargando…</h2><p>Buscando las fotos de tu familia.</p></div>
+</div>
+
+<div class="modal" id="frameModal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <span class="modal-nav modal-prev" onclick="navModal(-1)">&#10094;</span>
+  <img id="modalImg" src="" alt="Foto de entrenamiento">
+  <div class="modal-info" id="modalInfo"></div>
+  <span class="modal-nav modal-next" onclick="navModal(1)">&#10095;</span>
+</div>
+
+<script>
+const API = 'https://fenix-kids-agent-production.up.railway.app';
+const DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+let datos = null;
+let filtroNino = '';
+let photos = [];
+
+function avisoPrivado() {
+  document.getElementById('contenido').innerHTML = `
+    <div class="aviso">
+      <h2>Este link es privado 🔒</h2>
+      <p>Cada familia de Fenix Kids tiene su propio link para ver las fotos de sus hijos.<br><br>
+      Si no lo tenés o no funciona, pedilo por WhatsApp a Fenix Kids Academy.</p>
+    </div>`;
+}
+
+function etiquetaFecha(iso) {
+  if (!iso) return 'Otras fotos';
+  const d = new Date(iso + 'T12:00:00');
+  return `${DIAS[d.getDay()]} ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
+}
+
+function render() {
+  const visibles = datos.fotos.filter(f => !filtroNino || f.ninos.includes(filtroNino));
+  photos = [];
+
+  const chips = datos.hijos.length > 1 ? `
+    <div class="chips">
+      <button class="chip ${!filtroNino ? 'activo' : ''}" onclick="setFiltro('')">Todos</button>
+      ${datos.hijos.map(h => `<button class="chip ${filtroNino === h.nino_id ? 'activo' : ''}" onclick="setFiltro('${h.nino_id}')">${h.nombre}</button>`).join('')}
+    </div>` : '';
+
+  const grupos = {};
+  visibles.forEach(f => (grupos[f.fecha || ''] = grupos[f.fecha || ''] || []).push(f));
+  const secciones = Object.keys(grupos).sort().reverse().map(fecha => {
+    const items = grupos[fecha].map(f => {
+      const i = photos.push(f.archivo) - 1;
+      return `<div class="gal-item"><img src="${datos.base_url}/thumb/${f.archivo}" loading="lazy" alt="Foto de entrenamiento" onclick="openViewer(${i})"></div>`;
+    }).join('');
+    return `<section class="fecha-section"><h2 class="fecha-titulo">${etiquetaFecha(fecha)}</h2><div class="gal-grid">${items}</div></section>`;
+  }).join('');
+
+  const nombres = datos.hijos.map(h => h.nombre).join(' y ');
+  document.getElementById('contenido').innerHTML = `
+    <h1>Las fotos de ${nombres || 'tu familia'}</h1>
+    <p class="sub">${visibles.length} foto${visibles.length === 1 ? '' : 's'} de los entrenamientos en La Casona Lafuente</p>
+    ${chips}
+    ${secciones || '<div class="aviso"><h2>Todavía no hay fotos 📷</h2><p>Apenas identifiquemos fotos nuevas de tus hijos van a aparecer acá. ¡Guardá este link!</p></div>'}`;
+}
+
+function setFiltro(id) { filtroNino = id; render(); }
+
+async function init() {
+  const codigo = new URLSearchParams(location.search).get('f') || '';
+  if (!codigo) { avisoPrivado(); return; }
+  try {
+    const r = await fetch(`${API}/juego/fotos/${encodeURIComponent(codigo)}`);
+    if (!r.ok) { avisoPrivado(); return; }
+    datos = await r.json();
+    if (!datos.ok) { avisoPrivado(); return; }
+    render();
+  } catch (e) {
+    document.getElementById('contenido').innerHTML = `
+      <div class="aviso"><h2>No pudimos cargar las fotos</h2><p>Probá de nuevo en un ratito. Si sigue sin andar, avisanos por WhatsApp.</p></div>`;
+  }
+}
+init();
+
+let modalIdx = 0;
+function openViewer(i) {
+  modalIdx = i;
+  showModal();
+  document.getElementById('frameModal').classList.add('open');
+}
+function showModal() {
+  document.getElementById('modalImg').src = `${datos.base_url}/full/${photos[modalIdx]}`;
+  document.getElementById('modalInfo').textContent = `${modalIdx + 1} / ${photos.length}`;
+}
+function navModal(dir) {
+  modalIdx = (modalIdx + dir + photos.length) % photos.length;
+  showModal();
+}
+function closeModal() {
+  document.getElementById('frameModal').classList.remove('open');
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('frameModal').classList.contains('open')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'ArrowLeft') navModal(-1);
+  if (e.key === 'ArrowRight') navModal(1);
+});
+</script>
+</body>
+</html>
