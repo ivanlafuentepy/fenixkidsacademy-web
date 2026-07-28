@@ -9,6 +9,7 @@
 #   4. Le avisa a Ivan por WhatsApp con el link
 #
 # Todo es incremental y re-ejecutable: si no hay nada nuevo, no comitea ni avisa.
+import json
 import os
 import re
 import shutil
@@ -76,6 +77,30 @@ def avisar_whatsapp(mensaje: str) -> bool:
         return False
 
 
+def avisar_familias(link: str) -> int:
+    """Le pasa el link a las familias que pidieron las fotos en el check-in.
+
+    El envio lo hace el server (endpoint /fotos/avisar-familias), no este
+    script: las reglas de WhatsApp viven todas del lado del agente. Solo
+    reciben las familias que tocaron "Si, mandame fotos" — es opt-in.
+    """
+    key = leer_admin_key()
+    if not key:
+        print("AVISO: sin ADMIN_API_KEY — no aviso a las familias.")
+        return 0
+    url = f"{RAILWAY_URL}/fotos/avisar-familias?link={urllib.parse.quote(link)}"
+    req = urllib.request.Request(url, method="POST", headers={"X-ADMIN-KEY": key})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        enviados, fallidos = data.get("enviados", 0), data.get("fallidos", 0)
+        print(f"Familias avisadas: {enviados}" + (f" ({fallidos} fallidas)" if fallidos else ""))
+        return enviados
+    except Exception as e:
+        print(f"AVISO: no pude avisar a las familias: {e}")
+        return 0
+
+
 def main():
     print("=" * 50)
     print("  FOTOS FENIX — publicacion semanal")
@@ -139,6 +164,11 @@ def main():
     # Paso 6 — WhatsApp a Ivan
     avisar_whatsapp(f"📸 Fotos Fenix actualizadas: {nuevas} fotos nuevas subidas. "
                     f"Ya se ven aca: {LINK_PAGINA}")
+
+    # Paso 7 — pasarle el link a las familias que pidieron las fotos en el
+    # check-in (tocaron "Sí, mandame fotos"). El envio sale del server, nunca
+    # de aca; si nadie las pidio, no se manda nada.
+    avisar_familias(LINK_PAGINA)
 
     print("\nLISTO.")
 
