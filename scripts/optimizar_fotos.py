@@ -8,6 +8,7 @@
 # dia de entrenamiento en la pagina y ordenar cronologicamente dentro de cada dia.
 import argparse
 import json
+import re
 import sys
 from collections import defaultdict
 from datetime import datetime
@@ -59,6 +60,27 @@ def extraer_fecha(origen: Path) -> str | None:
         return dt.isoformat()
     except Exception:
         return None
+
+
+def fecha_de_carpeta(origen: Path) -> str | None:
+    """Fecha del nombre de la carpeta contenedora ('YYYY-MM-DD Dia'), o None."""
+    m = re.match(r"(\d{4}-\d{2}-\d{2})\b", origen.parent.name)
+    return m.group(1) if m else None
+
+
+def fecha_foto(origen: Path) -> str | None:
+    """Fecha efectiva de una foto. LA CARPETA MANDA: si Ivan puso la foto en una
+    carpeta 'YYYY-MM-DD Dia', esa es la fecha aunque el EXIF diga otra cosa
+    (WhatsApp borra o pisa el EXIF con la fecha del reenvio). El EXIF solo
+    aporta la hora cuando coincide con el dia de la carpeta, y es el fallback
+    para fotos fuera de carpetas de fecha."""
+    exif = extraer_fecha(origen)
+    carpeta = fecha_de_carpeta(origen)
+    if carpeta:
+        if exif and exif[:10] == carpeta:
+            return exif  # mismo dia: el EXIF suma la hora (ordena dentro del dia)
+        return carpeta
+    return exif
 
 
 def etiqueta_dia(fecha_iso: str) -> str:
@@ -142,14 +164,17 @@ def main():
     for origen in fuentes:
         clave = f"{origen.name}:{origen.stat().st_size}"
         if clave in manifest:
-            if "fecha" not in manifest[clave]:
-                manifest[clave]["fecha"] = extraer_fecha(origen)
+            # la fecha se recalcula siempre: si Ivan movio la foto a otra carpeta
+            # de dia, la carpeta manda y la correccion entra sola en la proxima corrida
+            fecha_nueva = fecha_foto(origen)
+            if manifest[clave].get("fecha") != fecha_nueva:
+                manifest[clave]["fecha"] = fecha_nueva
                 backfill += 1
             continue
         nombre = f"foto-{siguiente:04d}.jpg"
         procesar(origen, thumb_dir / nombre, THUMB_WIDTH, THUMB_QUALITY)
         procesar(origen, full_dir / nombre, FULL_WIDTH, FULL_QUALITY)
-        manifest[clave] = {"origen": origen.name, "salida": nombre, "fecha": extraer_fecha(origen)}
+        manifest[clave] = {"origen": origen.name, "salida": nombre, "fecha": fecha_foto(origen)}
         print(f"  {origen.name} -> {nombre}")
         siguiente += 1
         nuevas += 1
@@ -163,7 +188,7 @@ def main():
     if nuevas:
         print(f"\n{nuevas} fotos nuevas procesadas. Total acumulado: {len(manifest)}.")
     if backfill:
-        print(f"{backfill} fotos existentes actualizadas con su fecha EXIF.")
+        print(f"{backfill} fotos existentes con fecha corregida (carpeta/EXIF).")
     print(f"{args.salida}/{PHOTOS_JS_NOMBRE} actualizado — no hace falta tocar el HTML.")
 
 

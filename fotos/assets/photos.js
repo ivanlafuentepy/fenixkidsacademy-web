@@ -1,4 +1,17 @@
 const photoGroups = [
+  { etiqueta: 'Lunes 27 de julio de 2026', fotos: [
+      'foto-0651.jpg',
+      'foto-0652.jpg',
+      'foto-0634.jpg',
+      'foto-0643.jpg',
+      'foto-0645.jpg',
+      'foto-0647.jpg',
+      'foto-0642.jpg',
+      'foto-0653.jpg',
+      'foto-0649.jpg',
+      'foto-0656.jpg',
+      'foto-0658.jpg'
+    ] },
   { etiqueta: 'Sábado 11 de julio de 2026', fotos: [
       'foto-0626.jpg',
       'foto-0627.jpg',
@@ -677,6 +690,23 @@ const photoGroups = [
     ] },
   { etiqueta: 'Sin fecha', fotos: [
       'foto-0632.jpg',
-      'foto-0633.jpg'
+      'foto-0633.jpg',
+      'foto-0635.jpg',
+      'foto-0636.jpg',
+      'foto-0637.jpg',
+      'foto-0638.jpg',
+      'foto-0639.jpg',
+      'foto-0640.jpg',
+      'foto-0641.jpg',
+      'foto-0644.jpg',
+      'foto-0646.jpg',
+      'foto-0648.jpg',
+      'foto-0650.jpg',
+      'foto-0654.jpg',
+      'foto-0655.jpg',
+      'foto-0657.jpg',
+      'foto-0659.jpg',
+      'foto-0660.jpg',
+      'foto-0661.jpg'
     ] }
 ];
