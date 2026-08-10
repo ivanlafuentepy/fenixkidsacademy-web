@@ -844,17 +844,17 @@
         </table>
       </div>
 
-      <!-- UN solo botón de tarjeta. El href lo pone assets/campus.js con el monto
-           VIGENTE (350.000 hasta el jueves, 550.000 desde el viernes) y su firma:
-           los links van firmados por monto, así que hay uno por precio y el JS
-           elige el que corresponde. Para hermanos va por WhatsApp — el agente
-           calcula el total y arma la reserva. -->
+      <!-- El pago con tarjeta NO se hace en la web: el botón abre WhatsApp y
+           Aurora manda el link de pago ahí. Da más confianza (nadie carga la
+           tarjeta en una web que recién conoce) y además el link que arma el
+           agente va firmado con el teléfono, así que el pago queda atribuido a
+           la familia y dispara solo el formulario y la reserva de los 3 días. -->
       <div class="pago-directo reveal">
-        <a class="btn btn-azul" id="btnTarjeta" target="_blank" rel="noopener"
-           href="https://pago.ivanlafuente.com/pagar/fenix?monto=350000&amp;sig=16a2dd42e09a9fdf&amp;concepto=Desaf%C3%ADo+FENIX">
-          💳 Pagar con tarjeta
+        <a class="btn btn-azul" target="_blank" rel="noopener"
+           href="https://wa.me/595971669832?text=Hola%2C%20quiero%20pagar%20con%20tarjeta%20el%20Desaf%C3%ADo%20FENIX">
+          💳 Quiero pagar con tarjeta
         </a>
-        <p class="pago-nota">¿Más de un hijo? <a href="https://wa.me/595971669832?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Desaf%C3%ADo%20FENIX" target="_blank" rel="noopener">Escribinos</a> y te pasamos el link con el total exacto.</p>
+        <p class="pago-nota">Te mandamos el link de pago por WhatsApp y ahí mismo reservás los turnos.</p>
       </div>
 
       <div class="precio-afiche reveal">
