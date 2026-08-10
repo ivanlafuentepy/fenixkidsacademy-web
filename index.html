@@ -466,6 +466,18 @@
     .hermanos tbody td:first-child { font-weight: 700; color: var(--blue-dark); }
     .hermanos .price { font-family:'Fredoka',sans-serif; font-weight:600; color: var(--text); }
 
+    /* Vista del predio — se usa en "qué es" y arriba del mapa de contacto */
+    .casona-mapa { max-width:980px; margin:34px auto 0; }
+    .casona-mapa img {
+      width:100%; border-radius:var(--radius); box-shadow:var(--shadow-lg); display:block;
+    }
+    .casona-mapa figcaption {
+      margin-top:14px; text-align:center; font-family:'Fredoka',sans-serif;
+      font-size:clamp(1rem,2.6vw,1.25rem); color:var(--blue-dark); font-weight:500;
+    }
+    .contacto .casona-mapa { margin:0 0 18px; }
+    .contacto .casona-mapa figcaption { color:rgba(255,255,255,.85); font-size:.95rem; }
+
     .pago-directo { text-align:center; margin-top:28px; }
     .pago-directo .btn-azul { padding:16px 34px; font-size:1.05rem; }
     .pago-nota { margin-top:12px; font-size:.9rem; color:#888; }
@@ -601,6 +613,11 @@
       </div>
       <p class="posic-frase reveal">No prometemos que un niño quede transformado en tres días.<br>
       Prometemos que esos tres días sean <strong>el comienzo visible</strong> de esa transformación.</p>
+
+      <figure class="casona-mapa reveal">
+        <img src="assets/casona-mapa.jpg" alt="Vista del predio de La Casona Lafuente: la casona, la piscina, la casa del árbol, las canchas y el muelle sobre el río" loading="lazy">
+        <figcaption>Más de 3.000 m² para vivir una experiencia inolvidable</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -916,11 +933,17 @@
             <a class="btn btn-ghost" href="https://maps.app.goo.gl/nZT5zGA7N8B76xmD6" target="_blank" rel="noopener"><svg class="ic-btn" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>Cómo llegar</a>
           </div>
         </div>
-        <div class="cont-map reveal">
-          <iframe
-            src="https://www.google.com/maps?q=Maestras+Paraguayas+2056,Asuncion,Paraguay&output=embed"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación Fenix Kids Academy"></iframe>
+        <div class="reveal">
+          <figure class="casona-mapa">
+            <img src="assets/casona-mapa.jpg" alt="Vista del predio de La Casona Lafuente" loading="lazy">
+            <figcaption>La Casona Lafuente · más de 3.000 m² frente al río</figcaption>
+          </figure>
+          <div class="cont-map">
+            <iframe
+              src="https://www.google.com/maps?q=Maestras+Paraguayas+2056,Asuncion,Paraguay&output=embed"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación Fenix Kids Academy"></iframe>
+          </div>
         </div>
       </div>
     </div>
