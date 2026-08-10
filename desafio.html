@@ -56,7 +56,9 @@
     .tagline { margin:16px auto 0; max-width:540px; color:rgba(255,255,255,.92); font-size:clamp(1rem,2.5vw,1.2rem); font-weight:500; line-height:1.55; }
     .hero-fecha { margin:24px auto 0; max-width:470px; background:rgba(255,255,255,.12); border:1px solid rgba(245,166,35,.55); backdrop-filter:blur(6px); border-radius:16px; padding:16px 20px; }
     .hero-fecha .hf-lbl { display:block; color:var(--orange); font-size:.72rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
-    .hero-fecha strong { display:block; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.05rem,3vw,1.35rem); text-transform:capitalize; }
+    /* Sin capitalize: ponía en mayúscula también la "y" y el "de" de la fecha */
+    .hero-fecha strong { display:block; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.05rem,3vw,1.35rem); text-transform:none; }
+    .hero-fecha strong::first-letter { text-transform:uppercase; }
     .hero-fecha .hf-precio { display:block; margin-top:8px; color:rgba(255,255,255,.9); font-size:.92rem; font-weight:600; }
     .hero-fecha .hf-precio b { color:var(--orange); }
     /* RELOJ DE LA CUENTA REGRESIVA (hero y bandas) — lo arma assets/campus.js
@@ -71,8 +73,8 @@
 
     /* BANDA DE CUENTA REGRESIVA (corta entre secciones) — el texto lo pinta assets/campus.js */
     .cuenta-banda { background:linear-gradient(135deg,var(--blue-deep),var(--blue)); padding:26px 0; }
-    .cuenta-banda .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 28px; text-align:center; }
-    .cuenta-banda .cb-txt { flex:1 1 320px; }
+    /* En columna: el botón va debajo del reloj, no al costado */
+    .cuenta-banda .wrap { display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; }
     .cuenta-banda .cb-lbl { display:block; color:rgba(255,255,255,.7); font-size:.78rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
     /* Sin capitalize: capitaliza también la "y" y el "de" de la fecha */
     .cuenta-banda .cb-lbl b { color:#fff; font-size:.95rem; font-weight:600; letter-spacing:0; text-transform:none; }
