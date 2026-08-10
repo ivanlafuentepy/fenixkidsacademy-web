@@ -59,9 +59,15 @@
     .hero-fecha strong { display:block; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.05rem,3vw,1.35rem); text-transform:capitalize; }
     .hero-fecha .hf-precio { display:block; margin-top:8px; color:rgba(255,255,255,.9); font-size:.92rem; font-weight:600; }
     .hero-fecha .hf-precio b { color:var(--orange); }
-    /* Cuenta regresiva — la calcula assets/campus.js, se refresca sola */
-    .hero-fecha .hf-cuenta { display:block; margin-top:10px; padding-top:10px; border-top:1px solid rgba(245,166,35,.35); color:rgba(255,255,255,.9); font-size:.9rem; font-weight:600; }
-    .hero-fecha .hf-cuenta b { color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.05rem; white-space:nowrap; }
+    /* RELOJ DE LA CUENTA REGRESIVA (hero y bandas) — lo arma assets/campus.js
+       y se repinta cada segundo */
+    .cnt-lbl { display:block; font-size:.85rem; font-weight:600; }
+    .cnt-reloj { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:8px; }
+    .cnt-u { min-width:58px; padding:6px 8px; border-radius:12px; background:rgba(255,255,255,.1); border:1px solid rgba(245,166,35,.35); }
+    .cnt-u b { display:block; color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.45rem; line-height:1.15; font-variant-numeric:tabular-nums; }
+    .cnt-u i { display:block; font-style:normal; color:rgba(255,255,255,.62); font-size:.62rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
+
+    .hero-fecha .hf-cuenta { display:block; margin-top:12px; padding-top:12px; border-top:1px solid rgba(245,166,35,.35); color:rgba(255,255,255,.9); }
 
     /* BANDA DE CUENTA REGRESIVA (corta entre secciones) — el texto lo pinta assets/campus.js */
     .cuenta-banda { background:linear-gradient(135deg,var(--blue-deep),var(--blue)); padding:26px 0; }
@@ -70,8 +76,9 @@
     .cuenta-banda .cb-lbl { display:block; color:rgba(255,255,255,.7); font-size:.78rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
     /* Sin capitalize: capitaliza también la "y" y el "de" de la fecha */
     .cuenta-banda .cb-lbl b { color:#fff; font-size:.95rem; font-weight:600; letter-spacing:0; text-transform:none; }
-    .cuenta-banda .js-campus-cuenta { display:block; color:rgba(255,255,255,.92); font-size:.95rem; font-weight:600; }
-    .cuenta-banda .js-campus-cuenta b { display:block; margin-top:2px; color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.3rem,3.6vw,1.75rem); }
+    .cuenta-banda .js-campus-cuenta { display:block; color:rgba(255,255,255,.92); }
+    .cuenta-banda .cnt-u { min-width:66px; }
+    .cuenta-banda .cnt-u b { font-size:clamp(1.5rem,4vw,1.85rem); }
     .cuenta-banda .btn { flex:0 0 auto; }
     .hero-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:22px; }
     .badge { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); backdrop-filter:blur(4px); border-radius:30px; padding:7px 16px; color:#fff; font-size:.88rem; font-weight:600; }
