@@ -53,6 +53,35 @@ window.FENIX_CAMPUS = (function () {
            ' y domingo ' + c.domingo.getDate() + ' de ' + MESES[c.domingo.getMonth()];
   }
 
+  /** Momento en que se corta el precio anticipado: jueves 23:59:59 de esa semana. */
+  function cierreAnticipada(c) {
+    var t = new Date(c.viernes);
+    t.setDate(t.getDate() - 1);
+    t.setHours(23, 59, 59, 999);
+    return t;
+  }
+
+  /** Momento en que arranca el campus: viernes 17:00, el turno 1. */
+  function arranque(c) {
+    var t = new Date(c.viernes);
+    t.setHours(17, 0, 0, 0);
+    return t;
+  }
+
+  /** 297000000 → "3 días y 10 horas". Días y horas mientras haya días; después
+   *  horas y minutos, para que la última tarde no muestre siempre "0 días". */
+  function faltante(ms) {
+    var min = Math.floor(ms / 60000);
+    var dias = Math.floor(min / 1440);
+    var horas = Math.floor((min % 1440) / 60);
+    var minutos = min % 60;
+    function u(n, sing, plur) { return n + ' ' + (n === 1 ? sing : plur); }
+    if (dias > 0) return u(dias, 'día', 'días') + ' y ' + u(horas, 'hora', 'horas');
+    if (horas > 0) return u(horas, 'hora', 'horas') + ' y ' + u(minutos, 'minuto', 'minutos');
+    if (minutos < 1) return 'menos de 1 minuto';
+    return u(minutos, 'minuto', 'minutos');
+  }
+
   /** 350000 → "350.000" */
   function fmt(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -70,18 +99,42 @@ window.FENIX_CAMPUS = (function () {
    * queda atribuido a la familia y dispara solo el formulario y la reserva —
    * un link de la web no lleva teléfono y el cobro quedaba huérfano. */
 
-  /** Rellena los elementos de la página que pidan el dato por id. */
+  var tick = null;
+
+  /** Aplica fn a todos los elementos con esa clase. Por clase y no por id porque
+   *  la misma página repite el dato en el hero y en las bandas de cada sección. */
+  function cada(clase, fn) {
+    var els = document.querySelectorAll('.' + clase);
+    for (var i = 0; i < els.length; i++) fn(els[i]);
+  }
+
+  /** Rellena todos los elementos de la página que pidan el dato por clase.
+   *  Se repite sola cada 30 s: así la pestaña que quedó abierta pasa al campus
+   *  siguiente el viernes a las 17 sin que el padre tenga que recargar. */
   function pintar() {
     var c = proximoCampus();
-    var elFechas = document.getElementById('campusFechas');
-    if (elFechas) elFechas.textContent = label(c);
 
-    var elPrecio = document.getElementById('campusPrecio');
-    if (elPrecio) {
-      elPrecio.innerHTML = c.anticipada
+    cada('js-campus-fechas', function (el) { el.textContent = label(c); });
+
+    cada('js-campus-precio', function (el) {
+      el.innerHTML = c.anticipada
         ? 'Reservando ahora: <b>' + fmt(PRECIO_ANTICIPADA) + ' Gs</b> · precio normal ' + fmt(PRECIO_NORMAL)
         : '<b>' + fmt(PRECIO_NORMAL) + ' Gs</b> · la reserva anticipada de este campus ya cerró';
-    }
+    });
+
+    // Antes del viernes se cuenta al cierre del precio anticipado (jueves a la
+    // medianoche); el viernes mismo ya no hay descuento que perder, se cuenta
+    // a la hora de arranque.
+    var restante = (c.anticipada ? cierreAnticipada(c) : arranque(c)) - ahoraPY();
+    var texto = c.anticipada
+      ? '⏳ La reserva anticipada cierra en <b>' + faltante(restante) + '</b>'
+      : '🔥 El campus arranca en <b>' + faltante(restante) + '</b>';
+    cada('js-campus-cuenta', function (el) {
+      if (restante > 0) { el.innerHTML = texto; el.style.display = ''; }
+      else { el.style.display = 'none'; }
+    });
+
+    if (!tick) tick = setInterval(pintar, 30000);
     return c;
   }
 
@@ -89,6 +142,9 @@ window.FENIX_CAMPUS = (function () {
     proximoCampus: proximoCampus,
     label: label,
     precio: precio,
+    cierreAnticipada: cierreAnticipada,
+    arranque: arranque,
+    faltante: faltante,
     fmt: fmt,
     pintar: pintar,
     PRECIO_ANTICIPADA: PRECIO_ANTICIPADA,

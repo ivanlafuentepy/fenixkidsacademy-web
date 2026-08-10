@@ -59,6 +59,20 @@
     .hero-fecha strong { display:block; color:#fff; font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.05rem,3vw,1.35rem); text-transform:capitalize; }
     .hero-fecha .hf-precio { display:block; margin-top:8px; color:rgba(255,255,255,.9); font-size:.92rem; font-weight:600; }
     .hero-fecha .hf-precio b { color:var(--orange); }
+    /* Cuenta regresiva — la calcula assets/campus.js, se refresca sola */
+    .hero-fecha .hf-cuenta { display:block; margin-top:10px; padding-top:10px; border-top:1px solid rgba(245,166,35,.35); color:rgba(255,255,255,.9); font-size:.9rem; font-weight:600; }
+    .hero-fecha .hf-cuenta b { color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.05rem; white-space:nowrap; }
+
+    /* BANDA DE CUENTA REGRESIVA (corta entre secciones) — el texto lo pinta assets/campus.js */
+    .cuenta-banda { background:linear-gradient(135deg,var(--blue-deep),var(--blue)); padding:26px 0; }
+    .cuenta-banda .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 28px; text-align:center; }
+    .cuenta-banda .cb-txt { flex:1 1 320px; }
+    .cuenta-banda .cb-lbl { display:block; color:rgba(255,255,255,.7); font-size:.78rem; font-weight:800; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:6px; }
+    /* Sin capitalize: capitaliza también la "y" y el "de" de la fecha */
+    .cuenta-banda .cb-lbl b { color:#fff; font-size:.95rem; font-weight:600; letter-spacing:0; text-transform:none; }
+    .cuenta-banda .js-campus-cuenta { display:block; color:rgba(255,255,255,.92); font-size:.95rem; font-weight:600; }
+    .cuenta-banda .js-campus-cuenta b { display:block; margin-top:2px; color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:clamp(1.3rem,3.6vw,1.75rem); }
+    .cuenta-banda .btn { flex:0 0 auto; }
     .hero-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:22px; }
     .badge { background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3); backdrop-filter:blur(4px); border-radius:30px; padding:7px 16px; color:#fff; font-size:.88rem; font-weight:600; }
     .hero-cta { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:26px; }
@@ -183,8 +197,9 @@
       <p class="tagline">3 días para conocer FENIX, despertar su potencial y comenzar su transformación.</p>
       <div class="hero-fecha">
         <span class="hf-lbl">Próximo campus</span>
-        <strong id="campusFechas">viernes, sábado y domingo</strong>
-        <span class="hf-precio" id="campusPrecio"></span>
+        <strong id="campusFechas" class="js-campus-fechas">viernes, sábado y domingo</strong>
+        <span class="hf-precio js-campus-precio" id="campusPrecio"></span>
+        <span class="hf-cuenta js-campus-cuenta" id="campusCuenta"></span>
       </div>
       <div class="hero-badges">
         <span class="badge">🧒 4 a 12 años</span>
@@ -304,6 +319,17 @@
     </div>
   </section>
 
+  <!-- CUENTA REGRESIVA — el texto lo pinta assets/campus.js -->
+  <section class="cuenta-banda">
+    <div class="wrap">
+      <div class="cb-txt">
+        <span class="cb-lbl">Próximo campus · <b class="js-campus-fechas">viernes, sábado y domingo</b></span>
+        <span class="js-campus-cuenta"></span>
+      </div>
+      <a class="btn btn-orange" href="https://wa.me/595971938655?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Desaf%C3%ADo%20FENIX" target="_blank" rel="noopener">Reservá tu lugar</a>
+    </div>
+  </section>
+
   <!-- BENEFICIOS -->
   <section class="section benes">
     <div class="wrap">
@@ -384,6 +410,17 @@
       <div class="cta-final">
         <a class="btn btn-orange" href="https://wa.me/595971938655?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Desaf%C3%ADo%20FENIX" target="_blank" rel="noopener">Reservá el lugar de tu hijo</a>
       </div>
+    </div>
+  </section>
+
+  <!-- CUENTA REGRESIVA — el texto lo pinta assets/campus.js -->
+  <section class="cuenta-banda">
+    <div class="wrap">
+      <div class="cb-txt">
+        <span class="cb-lbl">Próximo campus · <b class="js-campus-fechas">viernes, sábado y domingo</b></span>
+        <span class="js-campus-cuenta"></span>
+      </div>
+      <a class="btn btn-orange" href="https://wa.me/595971938655?text=Hola%2C%20quiero%20reservar%20mi%20lugar%20en%20el%20Desaf%C3%ADo%20FENIX" target="_blank" rel="noopener">Reservá tu lugar</a>
     </div>
   </section>
 
