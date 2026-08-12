@@ -9,11 +9,19 @@
   <!-- Landing de anuncios: sin menú de navegación a propósito. Un solo camino:
        conocer el campus y reservar. La home completa está en / -->
   <meta name="robots" content="index, follow">
+  <!-- Esta landing repite el contenido del campus que ya está completo en la home.
+       El canonical manda la señal de Google a / para que no compitan entre si;
+       la URL sigue viva y funcionando para los anuncios. -->
+  <link rel="canonical" href="https://fenixkidsacademy.com/">
 
+  <meta property="og:site_name" content="FENIX KIDS ACADEMY">
+  <meta property="og:locale" content="es_PY">
+  <meta property="og:url" content="https://fenixkidsacademy.com/desafio">
   <meta property="og:title" content="DESAFÍO FENIX · Campus transformador de 3 días">
   <meta property="og:description" content="Viernes descubre, sábado supera, domingo conquista. El primer paso para formar parte de Fenix Kids Academy.">
-  <meta property="og:image" content="assets/afiche-precios.jpg">
+  <meta property="og:image" content="https://fenixkidsacademy.com/assets/afiche-precios.jpg">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
