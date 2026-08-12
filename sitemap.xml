@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sitemap.xml — FENIX KIDS ACADEMY.
+     Solo la home: /desafio es una landing de anuncios con canonical a /, y las
+     rutas privadas (/fotos/, /contactos/, /catalogo/) quedan fuera a proposito. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://fenixkidsacademy.com/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

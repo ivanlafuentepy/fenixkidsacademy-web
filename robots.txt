@@ -1,0 +1,15 @@
+# robots.txt — FENIX KIDS ACADEMY
+# Sin este archivo, Cloudflare Pages devolvia el index.html con HTTP 200
+# y Google leia HTML donde esperaba reglas.
+
+User-agent: *
+Allow: /
+
+# Zonas privadas: fotos de los ninos, datos de familias y material interno.
+# No deben aparecer nunca en resultados de busqueda.
+Disallow: /fotos/
+Disallow: /contactos/
+Disallow: /catalogo/
+Disallow: /reservas
+
+Sitemap: https://fenixkidsacademy.com/sitemap.xml
