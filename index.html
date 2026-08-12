@@ -215,6 +215,13 @@
       font-size: .62rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
     }
 
+    /* Aviso de fin de semana con turno único — lo llena assets/campus.js */
+    .hero-fecha .hf-feriado {
+      display: block; margin-top: 10px; color: var(--orange);
+      font-size: .82rem; font-weight: 700; line-height: 1.4;
+    }
+    .faq-feriado { color: var(--blue); font-weight: 700; }
+
     .hero-fecha .hf-cuenta {
       display: block; margin-top: 12px; padding-top: 12px;
       border-top: 1px solid rgba(245,166,35,.35);
@@ -628,6 +635,7 @@
         <strong id="campusFechas" class="js-campus-fechas">viernes, sábado y domingo</strong>
         <span class="hf-precio js-campus-precio" id="campusPrecio"></span>
         <span class="hf-cuenta js-campus-cuenta" id="campusCuenta"></span>
+        <span class="hf-feriado js-nota-feriado"></span>
       </div>
       <div class="hero-badges">
         <span class="badge">🧒 4 a 12 años</span>
@@ -686,7 +694,9 @@
             <span class="dia-dia">Viernes</span>
           </div>
           <p class="dia-txt">Se adapta al entorno, conoce a los entrenadores y a los otros chicos, y empieza a enfrentar desafíos. Observamos cómo se mueve, cómo reacciona ante lo nuevo y hasta dónde se anima. No es un examen: se vive como una aventura.</p>
-          <div class="dia-turnos">
+          <!-- Los turnos los reescribe assets/campus.js: un feriado corre con uno
+               solo. Lo de acá es el fallback si el JS no llega a correr. -->
+          <div class="dia-turnos js-turnos-viernes">
             <div class="dt-lbl">Elegís un turno</div>
             <div class="turno">☀️ 17:00 a 18:30</div>
             <div class="turno">🌙 19:30 a 20:45</div>
@@ -699,7 +709,7 @@
             <span class="dia-dia">Sábado</span>
           </div>
           <p class="dia-txt">El día central de entrenamiento: circuitos, obstáculos, escalada, trepa, equilibrio y desafíos en grupo. Buscamos que se lleve una experiencia concreta: <strong>"antes no podía o no me animaba, y ahora pude"</strong>.</p>
-          <div class="dia-turnos">
+          <div class="dia-turnos js-turnos-sabado">
             <div class="dt-lbl">Elegís un turno</div>
             <div class="turno">☀️ 11:00 a 12:30</div>
             <div class="turno">☀️ 15:30 a 17:00</div>
@@ -954,7 +964,7 @@
         </details>
         <details class="faq-item">
           <summary>¿Puedo elegir el horario?</summary>
-          <div class="faq-body">Sí. El <strong>viernes</strong> elegís entre 17:00 y 19:30 — el turno de la noche existe justamente para las familias que no llegan temprano por trabajo o tráfico. El <strong>sábado</strong> elegís entre 11:00 y 15:30. El <strong>domingo</strong> es uno solo para todos, porque es el día en familia.</div>
+          <div class="faq-body">Sí. El <strong>viernes</strong> elegís entre 17:00 y 19:30 — el turno de la noche existe justamente para las familias que no llegan temprano por trabajo o tráfico. El <strong>sábado</strong> elegís entre 11:00 y 15:30. El <strong>domingo</strong> es uno solo para todos, porque es el día en familia. <span class="faq-feriado js-nota-feriado"></span></div>
         </details>
         <details class="faq-item">
           <summary>¿El almuerzo del domingo está incluido?</summary>
@@ -1057,7 +1067,7 @@
 
   <!-- El ?v= sube de número cada vez que cambia campus.js: sin eso, el padre que
        ya visitó la web sigue con el archivo viejo en el cache del navegador. -->
-  <script src="assets/campus.js?v=2"></script>
+  <script src="assets/campus.js?v=3"></script>
   <script>
     // Menú móvil
     const toggle = document.getElementById('navToggle');

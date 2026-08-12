@@ -20,6 +20,24 @@ window.FENIX_CAMPUS = (function () {
   var PRECIO_NORMAL = 550000;
   var EXTRA_HERMANO = 150000;
 
+  /* Turnos de cada día. Espejo de TURNOS_VIERNES/TURNOS_SABADO y RANGO_TURNO de
+   * agent/desafio.py: si cambian allá, cambian acá. */
+  var TURNOS = {
+    viernes: [{ h: '17:00', txt: '17:00 a 18:30', ic: '☀️' },
+              { h: '19:30', txt: '19:30 a 20:45', ic: '🌙' }],
+    sabado:  [{ h: '11:00', txt: '11:00 a 12:30', ic: '☀️' },
+              { h: '15:30', txt: '15:30 a 17:00', ic: '☀️' }],
+  };
+
+  /* Días que corren con otros turnos (feriados). La clave es la fecha, así que
+   * la excepción se apaga sola cuando pasa — igual que TURNOS_ESPECIALES del
+   * agente, y por el mismo motivo: nadie tiene que acordarse de revertirla. */
+  var TURNOS_ESPECIALES = {
+    '2026-08-14': ['17:00'],
+    '2026-08-15': ['11:00'],
+  };
+  var MOTIVO_ESPECIAL = 'feriado';
+
   /** Hora de Paraguay, no la del visitante. */
   function ahoraPY() {
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Asuncion' }));
@@ -39,6 +57,26 @@ window.FENIX_CAMPUS = (function () {
     var hoy0 = new Date(ahora); hoy0.setHours(0, 0, 0, 0);
 
     return { viernes: viernes, sabado: sabado, domingo: domingo, anticipada: hoy0 < viernes };
+  }
+
+  /** "2026-08-14" — la fecha en ISO local, para buscar en TURNOS_ESPECIALES. */
+  function iso(fecha) {
+    var m = fecha.getMonth() + 1, d = fecha.getDate();
+    return fecha.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (d < 10 ? '0' : '') + d;
+  }
+
+  /** Los turnos que corren ESE día (uno solo si es feriado). */
+  function turnosDe(fecha, normales) {
+    var horas = TURNOS_ESPECIALES[iso(fecha)];
+    if (!horas) return normales;
+    return normales.filter(function (t) { return horas.indexOf(t.h) !== -1; });
+  }
+
+  /** ¿Este campus tiene algún día con turno único? */
+  function tieneTurnoUnico(c) {
+    c = c || proximoCampus();
+    return turnosDe(c.viernes, TURNOS.viernes).length < TURNOS.viernes.length ||
+           turnosDe(c.sabado, TURNOS.sabado).length < TURNOS.sabado.length;
   }
 
   /** "viernes 14, sábado 15 y domingo 16 de agosto" */
@@ -123,10 +161,40 @@ window.FENIX_CAMPUS = (function () {
     for (var i = 0; i < els.length; i++) fn(els[i]);
   }
 
+  /** Los turnos de los días 1 y 2, y las notas del feriado.
+   *
+   *  El HTML trae los dos turnos escritos como fallback (si el JS no corre, el
+   *  padre ve los horarios de siempre); acá se reemplazan por los que de verdad
+   *  corren ese fin de semana.
+   */
+  function pintarTurnos(c) {
+    [['js-turnos-viernes', c.viernes, TURNOS.viernes],
+     ['js-turnos-sabado', c.sabado, TURNOS.sabado]].forEach(function (par) {
+      var vigentes = turnosDe(par[1], par[2]);
+      var unico = vigentes.length === 1;
+      var html = '<div class="dt-lbl">' +
+                 (unico ? 'Turno único · ' + MOTIVO_ESPECIAL : 'Elegís un turno') + '</div>';
+      vigentes.forEach(function (t) {
+        html += '<div class="turno">' + t.ic + ' ' + t.txt + '</div>';
+      });
+      cada(par[0], function (el) { el.innerHTML = html; });
+    });
+
+    // Notas sueltas (hero y FAQ): solo aparecen el fin de semana que aplica.
+    var nota = tieneTurnoUnico(c)
+      ? 'Este fin de semana, por el ' + MOTIVO_ESPECIAL + ', hay un solo turno por día.'
+      : '';
+    cada('js-nota-feriado', function (el) {
+      el.textContent = nota;
+      el.style.display = nota ? '' : 'none';
+    });
+  }
+
   /** Fechas y precio. Cambian una vez por semana, así que se repintan solo
    *  cuando el campus que se está mostrando deja de ser el vigente. */
   function pintarCampus(c) {
     cada('js-campus-fechas', function (el) { el.textContent = label(c); });
+    pintarTurnos(c);
     cada('js-campus-precio', function (el) {
       el.innerHTML = c.anticipada
         ? 'Reservando ahora: <b>' + fmt(PRECIO_ANTICIPADA) + ' Gs</b> · precio normal ' + fmt(PRECIO_NORMAL)
@@ -172,6 +240,9 @@ window.FENIX_CAMPUS = (function () {
     arranque: arranque,
     faltante: faltante,
     reloj: reloj,
+    turnosDe: turnosDe,
+    tieneTurnoUnico: tieneTurnoUnico,
+    TURNOS: TURNOS,
     fmt: fmt,
     pintar: pintar,
     PRECIO_ANTICIPADA: PRECIO_ANTICIPADA,
