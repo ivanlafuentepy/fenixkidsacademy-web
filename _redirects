@@ -1,4 +1,0 @@
-# _redirects — Cloudflare Pages
-# www y el dominio pelado respondian los dos con 200: Google veia dos sitios
-# iguales y repartia la senal entre ambos. Todo va al dominio sin www.
-https://www.fenixkidsacademy.com/* https://fenixkidsacademy.com/:splat 301
