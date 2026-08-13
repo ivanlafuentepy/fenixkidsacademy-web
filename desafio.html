@@ -77,6 +77,9 @@
     .cnt-u b { display:block; color:var(--orange); font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.45rem; line-height:1.15; font-variant-numeric:tabular-nums; }
     .cnt-u i { display:block; font-style:normal; color:rgba(255,255,255,.62); font-size:.62rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
 
+    /* Cartel SOLD OUT del campus que se llenó — lo llena assets/campus.js */
+    .hf-soldout, .cb-soldout { display:inline-block; margin-bottom:10px; padding:6px 14px; border-radius:30px; background:#e5484d; color:#fff; font-size:.8rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; box-shadow:0 4px 14px rgba(229,72,77,.4); }
+
     /* Aviso de fin de semana con turno único — lo llena assets/campus.js */
     .hero-fecha .hf-feriado { display:block; margin-top:10px; color:var(--orange); font-size:.82rem; font-weight:700; line-height:1.4; }
     .faq-feriado { color:var(--blue); font-weight:700; }
@@ -217,6 +220,7 @@
       <p class="hero-sub">Campus transformador de 3 días</p>
       <p class="tagline">3 días para conocer FENIX, despertar su potencial y comenzar su transformación.</p>
       <div class="hero-fecha">
+        <span class="hf-soldout js-sold-out" style="display:none"></span>
         <span class="hf-lbl">Próximo campus</span>
         <strong id="campusFechas" class="js-campus-fechas">viernes, sábado y domingo</strong>
         <span class="hf-precio js-campus-precio" id="campusPrecio"></span>
@@ -346,6 +350,7 @@
   <section class="cuenta-banda">
     <div class="wrap">
       <div class="cb-txt">
+        <span class="cb-soldout js-sold-out" style="display:none"></span>
         <span class="cb-lbl">Próximo campus · <b class="js-campus-fechas">viernes, sábado y domingo</b></span>
         <span class="js-campus-cuenta"></span>
       </div>
@@ -440,6 +445,7 @@
   <section class="cuenta-banda">
     <div class="wrap">
       <div class="cb-txt">
+        <span class="cb-soldout js-sold-out" style="display:none"></span>
         <span class="cb-lbl">Próximo campus · <b class="js-campus-fechas">viernes, sábado y domingo</b></span>
         <span class="js-campus-cuenta"></span>
       </div>
@@ -491,7 +497,7 @@
 
   <!-- El ?v= sube de número cada vez que cambia campus.js: sin eso, el padre que
        ya visitó la web sigue con el archivo viejo en el cache del navegador. -->
-  <script src="assets/campus.js?v=3"></script>
+  <script src="assets/campus.js?v=4"></script>
   <script>
     // Fechas y precio del próximo campus (assets/campus.js, compartido con la home)
     if (window.FENIX_CAMPUS) window.FENIX_CAMPUS.pintar();

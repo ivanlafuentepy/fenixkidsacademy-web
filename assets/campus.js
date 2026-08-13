@@ -38,6 +38,14 @@ window.FENIX_CAMPUS = (function () {
   };
   var MOTIVO_ESPECIAL = 'feriado';
 
+  /* Campus que ya NO se venden (SOLD OUT). La clave es el VIERNES del campus.
+   * Espejo de CAMPUS_AGOTADOS de agent/desafio.py: proximoCampus() los saltea,
+   * así que el contador, el precio y los turnos pasan solos al siguiente. El
+   * cartel de SOLD OUT se muestra hasta el domingo de ese campus y muere solo. */
+  var CAMPUS_AGOTADOS = {
+    '2026-08-14': true,
+  };
+
   /** Hora de Paraguay, no la del visitante. */
   function ahoraPY() {
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Asuncion' }));
@@ -51,6 +59,8 @@ window.FENIX_CAMPUS = (function () {
     viernes.setDate(viernes.getDate() + ((5 - viernes.getDay() + 7) % 7));
     var esHoyViernes = viernes.toDateString() === new Date(ahora).toDateString();
     if (esHoyViernes && ahora.getHours() >= 17) viernes.setDate(viernes.getDate() + 7);
+    // Un campus SOLD OUT no se vende: se pasa directo al siguiente.
+    while (CAMPUS_AGOTADOS[iso(viernes)]) viernes.setDate(viernes.getDate() + 7);
 
     var sabado = new Date(viernes);  sabado.setDate(viernes.getDate() + 1);
     var domingo = new Date(viernes); domingo.setDate(viernes.getDate() + 2);
@@ -70,6 +80,23 @@ window.FENIX_CAMPUS = (function () {
     var horas = TURNOS_ESPECIALES[iso(fecha)];
     if (!horas) return normales;
     return normales.filter(function (t) { return horas.indexOf(t.h) !== -1; });
+  }
+
+  /** El campus SOLD OUT que todavía vale la pena anunciar, o null.
+   *  Visible hasta su domingo inclusive; el lunes desaparece solo. */
+  function campusAgotadoVisible(ahora) {
+    ahora = ahora || ahoraPY();
+    var hoy = new Date(ahora); hoy.setHours(0, 0, 0, 0);
+    var visible = null;
+    for (var viernesIso in CAMPUS_AGOTADOS) {
+      var v = new Date(viernesIso + 'T00:00:00');
+      var domingo = new Date(v); domingo.setDate(v.getDate() + 2);
+      if (hoy <= domingo && (!visible || v < visible.viernes)) {
+        var s = new Date(v); s.setDate(v.getDate() + 1);
+        visible = { viernes: v, sabado: s, domingo: domingo };
+      }
+    }
+    return visible;
   }
 
   /** ¿Este campus tiene algún día con turno único? */
@@ -192,9 +219,19 @@ window.FENIX_CAMPUS = (function () {
 
   /** Fechas y precio. Cambian una vez por semana, así que se repintan solo
    *  cuando el campus que se está mostrando deja de ser el vigente. */
-  function pintarCampus(c) {
+  function pintarCampus(c, agotado) {
     cada('js-campus-fechas', function (el) { el.textContent = label(c); });
     pintarTurnos(c);
+
+    // Cartel de SOLD OUT del campus que se llenó (hasta su domingo inclusive)
+    var soldOut = agotado
+      ? '🔥 Campus del ' + label(agotado).replace('viernes ', '').replace('sábado ', '')
+        .replace('domingo ', '') + ': SOLD OUT'
+      : '';
+    cada('js-sold-out', function (el) {
+      el.textContent = soldOut;
+      el.style.display = soldOut ? '' : 'none';
+    });
     cada('js-campus-precio', function (el) {
       el.innerHTML = c.anticipada
         ? 'Reservando ahora: <b>' + fmt(PRECIO_ANTICIPADA) + ' Gs</b> · precio normal ' + fmt(PRECIO_NORMAL)
@@ -225,8 +262,11 @@ window.FENIX_CAMPUS = (function () {
   function pintar() {
     var ahora = ahoraPY();
     var c = proximoCampus(ahora);
-    var actual = c.viernes.getTime() + '|' + c.anticipada;
-    if (actual !== firma) { firma = actual; pintarCampus(c); }
+    var agotado = campusAgotadoVisible(ahora);
+    // El sold-out entra en la firma: el lunes el cartel muere aunque la
+    // pestaña haya quedado abierta desde el domingo.
+    var actual = c.viernes.getTime() + '|' + c.anticipada + '|' + (agotado ? iso(agotado.viernes) : '');
+    if (actual !== firma) { firma = actual; pintarCampus(c, agotado); }
     pintarCuenta(c, ahora);
     if (!tick) tick = setInterval(pintar, 1000);
     return c;
