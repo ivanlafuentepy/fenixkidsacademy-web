@@ -5,9 +5,9 @@
  * se actualiza, el otro no, y el padre recibe dos números distintos.
  *
  * Mismo criterio que agent/desafio.py del repo del agente:
- *   - el campus se identifica por su VIERNES;
- *   - se deja de vender cuando arranca el turno 1 (viernes 17:00 hora PY);
- *   - la reserva anticipada vale hasta el jueves 23:59.
+ *   - el campus se identifica por su SÁBADO (el viernes salió de la oferta el 17/08);
+ *   - se deja de vender cuando arranca el turno 1 (sábado 11:00 hora PY);
+ *   - la reserva anticipada vale hasta el viernes 23:59.
  * Si cambia allá, cambia acá.
  */
 window.FENIX_CAMPUS = (function () {
@@ -16,60 +16,54 @@ window.FENIX_CAMPUS = (function () {
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
                'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
-  var PRECIO_ANTICIPADA = 350000;
-  var PRECIO_NORMAL = 550000;
+  var PRECIO_ANTICIPADA = 300000;
+  var PRECIO_NORMAL = 450000;
   var EXTRA_HERMANO = 150000;
 
-  /* Turnos de cada día. Espejo de TURNOS_VIERNES/TURNOS_SABADO y RANGO_TURNO de
-   * agent/desafio.py: si cambian allá, cambian acá. */
+  /* Turnos del día que el padre elige (el sábado; el domingo es único, 15:30).
+   * Espejo de TURNOS_SABADO y RANGO_TURNO de agent/desafio.py: si cambian allá,
+   * cambian acá. */
   var TURNOS = {
-    viernes: [{ h: '17:00', txt: '17:00 a 18:30', ic: '☀️' },
-              { h: '19:30', txt: '19:30 a 20:45', ic: '🌙' }],
     sabado:  [{ h: '11:00', txt: '11:00 a 12:30', ic: '☀️' },
               { h: '15:30', txt: '15:30 a 17:00', ic: '☀️' }],
   };
 
-  /* Días que corren con otros turnos (feriados). La clave es la fecha, así que
-   * la excepción se apaga sola cuando pasa — igual que TURNOS_ESPECIALES del
-   * agente, y por el mismo motivo: nadie tiene que acordarse de revertirla. */
-  var TURNOS_ESPECIALES = {
-    '2026-08-14': ['17:00'],
-    '2026-08-15': ['11:00'],
-  };
+  /* Días que corren con otros turnos (feriados). La clave es la fecha (del
+   * sábado), así que la excepción se apaga sola cuando pasa — igual que
+   * TURNOS_ESPECIALES del agente, y por el mismo motivo: nadie tiene que
+   * acordarse de revertirla. */
+  var TURNOS_ESPECIALES = {};
   var MOTIVO_ESPECIAL = 'feriado';
 
-  /* Campus que ya NO se venden (SOLD OUT). La clave es el VIERNES del campus.
+  /* Campus que ya NO se venden (SOLD OUT). La clave es el SÁBADO del campus.
    * Espejo de CAMPUS_AGOTADOS de agent/desafio.py: proximoCampus() los saltea,
    * así que el contador, el precio y los turnos pasan solos al siguiente. El
    * cartel de SOLD OUT se muestra hasta el domingo de ese campus y muere solo. */
-  var CAMPUS_AGOTADOS = {
-    '2026-08-14': true,
-  };
+  var CAMPUS_AGOTADOS = {};
 
   /** Hora de Paraguay, no la del visitante. */
   function ahoraPY() {
     return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Asuncion' }));
   }
 
-  /** {viernes, sabado, domingo, anticipada} del campus que se está vendiendo. */
+  /** {sabado, domingo, anticipada} del campus que se está vendiendo. */
   function proximoCampus(ahora) {
     ahora = ahora || ahoraPY();
-    var viernes = new Date(ahora);
-    viernes.setHours(0, 0, 0, 0);
-    viernes.setDate(viernes.getDate() + ((5 - viernes.getDay() + 7) % 7));
-    var esHoyViernes = viernes.toDateString() === new Date(ahora).toDateString();
-    if (esHoyViernes && ahora.getHours() >= 17) viernes.setDate(viernes.getDate() + 7);
+    var sabado = new Date(ahora);
+    sabado.setHours(0, 0, 0, 0);
+    sabado.setDate(sabado.getDate() + ((6 - sabado.getDay() + 7) % 7));
+    var esHoySabado = sabado.toDateString() === new Date(ahora).toDateString();
+    if (esHoySabado && ahora.getHours() >= 11) sabado.setDate(sabado.getDate() + 7);
     // Un campus SOLD OUT no se vende: se pasa directo al siguiente.
-    while (CAMPUS_AGOTADOS[iso(viernes)]) viernes.setDate(viernes.getDate() + 7);
+    while (CAMPUS_AGOTADOS[iso(sabado)]) sabado.setDate(sabado.getDate() + 7);
 
-    var sabado = new Date(viernes);  sabado.setDate(viernes.getDate() + 1);
-    var domingo = new Date(viernes); domingo.setDate(viernes.getDate() + 2);
+    var domingo = new Date(sabado); domingo.setDate(sabado.getDate() + 1);
     var hoy0 = new Date(ahora); hoy0.setHours(0, 0, 0, 0);
 
-    return { viernes: viernes, sabado: sabado, domingo: domingo, anticipada: hoy0 < viernes };
+    return { sabado: sabado, domingo: domingo, anticipada: hoy0 < sabado };
   }
 
-  /** "2026-08-14" — la fecha en ISO local, para buscar en TURNOS_ESPECIALES. */
+  /** "2026-08-22" — la fecha en ISO local, para buscar en TURNOS_ESPECIALES. */
   function iso(fecha) {
     var m = fecha.getMonth() + 1, d = fecha.getDate();
     return fecha.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (d < 10 ? '0' : '') + d;
@@ -88,48 +82,45 @@ window.FENIX_CAMPUS = (function () {
     ahora = ahora || ahoraPY();
     var hoy = new Date(ahora); hoy.setHours(0, 0, 0, 0);
     var visible = null;
-    for (var viernesIso in CAMPUS_AGOTADOS) {
-      var v = new Date(viernesIso + 'T00:00:00');
-      var domingo = new Date(v); domingo.setDate(v.getDate() + 2);
-      if (hoy <= domingo && (!visible || v < visible.viernes)) {
-        var s = new Date(v); s.setDate(v.getDate() + 1);
-        visible = { viernes: v, sabado: s, domingo: domingo };
+    for (var sabadoIso in CAMPUS_AGOTADOS) {
+      var s = new Date(sabadoIso + 'T00:00:00');
+      var domingo = new Date(s); domingo.setDate(s.getDate() + 1);
+      if (hoy <= domingo && (!visible || s < visible.sabado)) {
+        visible = { sabado: s, domingo: domingo };
       }
     }
     return visible;
   }
 
-  /** ¿Este campus tiene algún día con turno único? */
+  /** ¿Este campus tiene el sábado con turno único? */
   function tieneTurnoUnico(c) {
     c = c || proximoCampus();
-    return turnosDe(c.viernes, TURNOS.viernes).length < TURNOS.viernes.length ||
-           turnosDe(c.sabado, TURNOS.sabado).length < TURNOS.sabado.length;
+    return turnosDe(c.sabado, TURNOS.sabado).length < TURNOS.sabado.length;
   }
 
-  /** "viernes 14, sábado 15 y domingo 16 de agosto" */
+  /** "sábado 22 y domingo 23 de agosto" */
   function label(c) {
     c = c || proximoCampus();
-    if (c.viernes.getMonth() === c.domingo.getMonth()) {
-      return 'viernes ' + c.viernes.getDate() + ', sábado ' + c.sabado.getDate() +
-             ' y domingo ' + c.domingo.getDate() + ' de ' + MESES[c.viernes.getMonth()];
+    if (c.sabado.getMonth() === c.domingo.getMonth()) {
+      return 'sábado ' + c.sabado.getDate() +
+             ' y domingo ' + c.domingo.getDate() + ' de ' + MESES[c.sabado.getMonth()];
     }
-    return 'viernes ' + c.viernes.getDate() + ' de ' + MESES[c.viernes.getMonth()] +
-           ', sábado ' + c.sabado.getDate() + ' de ' + MESES[c.sabado.getMonth()] +
+    return 'sábado ' + c.sabado.getDate() + ' de ' + MESES[c.sabado.getMonth()] +
            ' y domingo ' + c.domingo.getDate() + ' de ' + MESES[c.domingo.getMonth()];
   }
 
-  /** Momento en que se corta el precio anticipado: jueves 23:59:59 de esa semana. */
+  /** Momento en que se corta el precio anticipado: viernes 23:59:59 de esa semana. */
   function cierreAnticipada(c) {
-    var t = new Date(c.viernes);
+    var t = new Date(c.sabado);
     t.setDate(t.getDate() - 1);
     t.setHours(23, 59, 59, 999);
     return t;
   }
 
-  /** Momento en que arranca el campus: viernes 17:00, el turno 1. */
+  /** Momento en que arranca el campus: sábado 11:00, el turno 1. */
   function arranque(c) {
-    var t = new Date(c.viernes);
-    t.setHours(17, 0, 0, 0);
+    var t = new Date(c.sabado);
+    t.setHours(11, 0, 0, 0);
     return t;
   }
 
@@ -148,7 +139,7 @@ window.FENIX_CAMPUS = (function () {
   function dosDigitos(n) { return (n < 10 ? '0' : '') + n; }
 
   /** El reloj vivo: una cajita por unidad. Los días se omiten cuando ya no queda
-   *  ninguno, así el viernes se lee "16 horas 04 min 12 seg" y no "00 días". */
+   *  ninguno, así el sábado se lee "03 horas 04 min 12 seg" y no "00 días". */
   function reloj(ms) {
     var f = faltante(ms);
     var u = [];
@@ -161,7 +152,7 @@ window.FENIX_CAMPUS = (function () {
     return '<span class="cnt-reloj">' + html + '</span>';
   }
 
-  /** 350000 → "350.000" */
+  /** 300000 → "300.000" */
   function fmt(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
@@ -188,15 +179,14 @@ window.FENIX_CAMPUS = (function () {
     for (var i = 0; i < els.length; i++) fn(els[i]);
   }
 
-  /** Los turnos de los días 1 y 2, y las notas del feriado.
+  /** Los turnos del sábado, y las notas del feriado.
    *
    *  El HTML trae los dos turnos escritos como fallback (si el JS no corre, el
    *  padre ve los horarios de siempre); acá se reemplazan por los que de verdad
    *  corren ese fin de semana.
    */
   function pintarTurnos(c) {
-    [['js-turnos-viernes', c.viernes, TURNOS.viernes],
-     ['js-turnos-sabado', c.sabado, TURNOS.sabado]].forEach(function (par) {
+    [['js-turnos-sabado', c.sabado, TURNOS.sabado]].forEach(function (par) {
       var vigentes = turnosDe(par[1], par[2]);
       var unico = vigentes.length === 1;
       var html = '<div class="dt-lbl">' +
@@ -209,7 +199,7 @@ window.FENIX_CAMPUS = (function () {
 
     // Notas sueltas (hero y FAQ): solo aparecen el fin de semana que aplica.
     var nota = tieneTurnoUnico(c)
-      ? 'Este fin de semana, por el ' + MOTIVO_ESPECIAL + ', hay un solo turno por día.'
+      ? 'Este fin de semana, por el ' + MOTIVO_ESPECIAL + ', el sábado hay un solo turno.'
       : '';
     cada('js-nota-feriado', function (el) {
       el.textContent = nota;
@@ -225,8 +215,8 @@ window.FENIX_CAMPUS = (function () {
 
     // Cartel de SOLD OUT del campus que se llenó (hasta su domingo inclusive)
     var soldOut = agotado
-      ? '🔥 Campus del ' + label(agotado).replace('viernes ', '').replace('sábado ', '')
-        .replace('domingo ', '') + ': SOLD OUT'
+      ? '🔥 Campus del ' + label(agotado).replace('sábado ', '').replace('domingo ', '') +
+        ': SOLD OUT'
       : '';
     cada('js-sold-out', function (el) {
       el.textContent = soldOut;
@@ -240,15 +230,15 @@ window.FENIX_CAMPUS = (function () {
   }
 
   /** El reloj, una vez por segundo.
-   *  Antes del viernes se cuenta al cierre del precio anticipado (jueves 23:59);
-   *  el viernes ya no hay descuento que perder, se cuenta a la hora de arranque. */
+   *  Antes del sábado se cuenta al cierre del precio anticipado (viernes 23:59);
+   *  el sábado ya no hay descuento que perder, se cuenta a la hora de arranque. */
   function pintarCuenta(c, ahora) {
     var meta = c.anticipada ? cierreAnticipada(c) : arranque(c);
     var restante = meta - ahora;
     var hoy = meta.toDateString() === ahora.toDateString();
     var titulo = c.anticipada
-      ? '⏳ La reserva anticipada cierra ' + (hoy ? 'hoy' : 'el jueves') + ' a las 23:59'
-      : '🔥 El campus arranca hoy a las 17:00';
+      ? '⏳ La reserva anticipada cierra ' + (hoy ? 'hoy' : 'el viernes') + ' a las 23:59'
+      : '🔥 El campus arranca hoy a las 11:00';
     var html = '<span class="cnt-lbl">' + titulo + '</span>' + reloj(restante);
     cada('js-campus-cuenta', function (el) {
       if (restante > 0) { el.innerHTML = html; el.style.display = ''; }
@@ -258,14 +248,14 @@ window.FENIX_CAMPUS = (function () {
 
   /** Rellena todos los elementos de la página que pidan el dato por clase y deja
    *  el reloj corriendo. El tick de 1 s también hace que la pestaña que quedó
-   *  abierta pase sola al campus siguiente el viernes a las 17. */
+   *  abierta pase sola al campus siguiente el sábado a las 11. */
   function pintar() {
     var ahora = ahoraPY();
     var c = proximoCampus(ahora);
     var agotado = campusAgotadoVisible(ahora);
     // El sold-out entra en la firma: el lunes el cartel muere aunque la
     // pestaña haya quedado abierta desde el domingo.
-    var actual = c.viernes.getTime() + '|' + c.anticipada + '|' + (agotado ? iso(agotado.viernes) : '');
+    var actual = c.sabado.getTime() + '|' + c.anticipada + '|' + (agotado ? iso(agotado.sabado) : '');
     if (actual !== firma) { firma = actual; pintarCampus(c, agotado); }
     pintarCuenta(c, ahora);
     if (!tick) tick = setInterval(pintar, 1000);
